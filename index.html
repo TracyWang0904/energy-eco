@@ -256,6 +256,8 @@ a{color:inherit;}
 .concept-card:nth-child(9) .ic{color:var(--sun-deep);background:var(--sun-tint);}
 .concept-card h3{font-size:1.12rem;margin-bottom:8px;}
 .concept-card p{color:var(--ink-soft);font-size:.94rem;}
+.concept-chart{width:100%;height:auto;margin-top:14px;display:block;}
+.concept-chart text{font-family:var(--font-body);font-size:9px;font-weight:700;fill:var(--ink-faint);}
 
 .ref-link{
   display:inline-flex;align-items:center;gap:4px;margin-top:12px;
@@ -308,6 +310,11 @@ a{color:inherit;}
   border-radius:var(--radius-md);padding:15px 16px;cursor:pointer;transition:border-color .15s ease, background .15s ease;
 }
 .tip:hover{border-color:var(--teal);}
+.tip .tip-ic{
+  flex:none;width:34px;height:34px;border-radius:11px;background:var(--teal-tint);color:var(--teal-deep);
+  display:flex;align-items:center;justify-content:center;
+}
+.tip .tip-ic .icon{width:18px;height:18px;}
 .tip .box{
   flex:none;width:24px;height:24px;border-radius:8px;border:2px solid var(--line);
   display:flex;align-items:center;justify-content:center;margin-top:1px;transition:all .15s ease;
@@ -496,6 +503,12 @@ footer .icon{width:16px;height:16px;vertical-align:-3px;margin-right:6px;color:v
 <symbol id="i-tube" viewBox="0 0 48 48"><rect x="3" y="21" width="6" height="6" rx="1.5"/><rect x="39" y="21" width="6" height="6" rx="1.5"/><rect x="9" y="19.5" width="30" height="9" rx="4.5"/><path d="M15 24h2M21 24h2M27 24h2M33 24h2" stroke-width="1.6"/></symbol>
 <symbol id="i-cigarette" viewBox="0 0 48 48"><path d="M6 25.5h21a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2Z"/><path fill="currentColor" stroke="none" d="M29 25.5h9a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-9Z"/><path d="M4 21.5l3.5-4M10 21.5l3-3.5" stroke-width="1.6"/></symbol>
 <symbol id="i-arrow" viewBox="0 0 48 48"><path d="M10 24h28M28 12l12 12-12 12"/></symbol>
+<symbol id="i-plug" viewBox="0 0 48 48"><path d="M16 18v-8M24 18v-8" stroke-width="3"/><path d="M11 18h18v6a9 9 0 0 1-9 9 9 9 0 0 1-9-9Z"/><path d="M20 33v7"/></symbol>
+<symbol id="i-bus" viewBox="0 0 48 48"><rect x="6" y="10" width="36" height="22" rx="4"/><path d="M6 24h36M15 10v22M33 10v22"/><circle fill="currentColor" stroke="none" cx="14" cy="37" r="3"/><circle fill="currentColor" stroke="none" cx="34" cy="37" r="3"/></symbol>
+<symbol id="i-car" viewBox="0 0 48 48"><path d="M8 27l3.5-9.5A4 4 0 0 1 15.2 15h17.6a4 4 0 0 1 3.7 2.5L40 27"/><path d="M6 27h36v6a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2v-2H12v2a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2Z"/><circle fill="currentColor" stroke="none" cx="15" cy="29" r="2.6"/><circle fill="currentColor" stroke="none" cx="33" cy="29" r="2.6"/></symbol>
+<symbol id="i-shower" viewBox="0 0 48 48"><path d="M11 18a11 11 0 0 1 20-6.5"/><path d="M8 21h28a2 2 0 0 0 2-2 7 7 0 0 0-7-7H17a9 9 0 0 0-9 9Z"/><path d="M15 27v3M23 27v3M31 27v3M15 35v3M23 35v3M31 35v3" stroke-width="2.2"/></symbol>
+<symbol id="i-faucet" viewBox="0 0 48 48"><path d="M14 10v9"/><path d="M14 19h20a5 5 0 0 1 5 5"/><path d="M39 24v6"/><path d="M35.5 34c0 3.3 1.6 5.5 3.5 5.5s3.5-2.2 3.5-5.5-3.5-6.5-3.5-6.5-3.5 3.2-3.5 6.5Z"/></symbol>
+<symbol id="i-gift" viewBox="0 0 48 48"><rect x="8" y="20" width="32" height="20" rx="2"/><path d="M8 28h32"/><path d="M24 20v20"/><path d="M24 20c-3-9-15-9-15-2 0 3.5 5 2 15 2ZM24 20c3-9 15-9 15-2 0 3.5-5 2-15 2Z"/></symbol>
 </defs>
 </svg>
 
@@ -587,12 +600,33 @@ footer .icon{width:16px;height:16px;vertical-align:-3px;margin-right:6px;color:v
           <div class="ic"><svg class="icon"><use href="#i-thermo"/></svg></div>
           <h3>碳排放与温室效应</h3>
           <p>燃烧化石能源会释放二氧化碳等温室气体，它们像一层"棉被"包裹地球，让热量难以散出，导致气候变暖。</p>
+          <svg class="concept-chart" viewBox="0 0 280 108" aria-hidden="true">
+            <circle cx="24" cy="20" r="11" fill="var(--sun)" opacity=".22"/>
+            <circle cx="24" cy="20" r="7" fill="none" stroke="var(--sun)" stroke-width="2.2"/>
+            <line x1="86" y1="32" x2="272" y2="32" stroke="var(--ink-faint)" stroke-width="1.3" stroke-dasharray="3 4"/>
+            <text x="179" y="27" text-anchor="middle">大气 · 温室气体层</text>
+            <path d="M56 18 96 88M92 12 122 88M128 16 150 88" fill="none" stroke="var(--sun)" stroke-width="2" stroke-linecap="round"/>
+            <path d="M92 82l4 6 5-5M118 82l4 6 5-5M144 82l4 6 5-5" fill="none" stroke="var(--sun)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M190 88 200 40M222 88 212 40" fill="none" stroke="var(--coral)" stroke-width="2" stroke-linecap="round"/>
+            <path d="M196 48l4-8 6 6M208 48l4-8 6 6" fill="none" stroke="var(--coral)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="10" y1="90" x2="272" y2="90" stroke="var(--ink)" stroke-width="2" stroke-linecap="round"/>
+            <text x="141" y="102" text-anchor="middle">地表（热量被留住，温度上升）</text>
+          </svg>
           <a class="ref-link" href="https://www.ipcc.ch/sr15/" target="_blank" rel="noopener">IPCC《全球升温1.5°C特别报告》<svg class="icon"><use href="#i-arrow"/></svg></a>
         </article>
         <article class="concept-card">
           <div class="ic"><svg class="icon"><use href="#i-peak"/></svg></div>
           <h3>碳达峰 / 碳中和</h3>
           <p>碳达峰指碳排放量达到历史最高点后开始下降的拐点；碳中和指排放与吸收互相抵消，净排放趋近于零。</p>
+          <svg class="concept-chart" viewBox="0 0 280 100" aria-hidden="true">
+            <path d="M10 84 Q60 26 100 24 Q160 22 185 56 Q225 92 270 94" fill="none" stroke="var(--teal)" stroke-width="3" stroke-linecap="round"/>
+            <path d="M10 84 Q60 26 100 24 Q160 22 185 56 Q225 92 270 94 L270 96 L10 96 Z" fill="var(--teal-tint)" stroke="none"/>
+            <line x1="10" y1="96" x2="270" y2="96" stroke="var(--line)" stroke-width="1"/>
+            <circle cx="100" cy="24" r="4" fill="var(--teal-deep)" stroke="none"/>
+            <circle cx="270" cy="94" r="4" fill="var(--sky-deep)" stroke="none"/>
+            <text x="100" y="14" text-anchor="middle">2030 碳达峰</text>
+            <text x="269" y="14" text-anchor="end">2060 碳中和</text>
+          </svg>
           <a class="ref-link" href="https://www.gov.cn/zhengce/content/2021-10/26/content_5644984.htm" target="_blank" rel="noopener">国务院《2030年前碳达峰行动方案》<svg class="icon"><use href="#i-arrow"/></svg></a>
         </article>
         <article class="concept-card">
@@ -615,6 +649,24 @@ footer .icon{width:16px;height:16px;vertical-align:-3px;margin-right:6px;color:v
           <div class="ic"><svg class="icon"><use href="#i-recycle"/></svg></div>
           <h3>循环经济</h3>
           <p>让废弃物重新变成可用资源、尽量减少"开采—使用—丢弃"这种单向消耗模式，是应对资源紧张的重要思路。</p>
+          <svg class="concept-chart" viewBox="0 0 280 92" aria-hidden="true">
+            <circle cx="30" cy="24" r="16" fill="var(--teal-tint)" stroke="var(--teal)" stroke-width="1.5"/>
+            <text x="30" y="28" text-anchor="middle" fill="var(--teal-deep)">生产</text>
+            <circle cx="100" cy="24" r="16" fill="var(--sky-tint)" stroke="var(--sky)" stroke-width="1.5"/>
+            <text x="100" y="28" text-anchor="middle" fill="var(--sky-deep)">使用</text>
+            <circle cx="170" cy="24" r="16" fill="var(--sun-tint)" stroke="var(--sun)" stroke-width="1.5"/>
+            <text x="170" y="28" text-anchor="middle" fill="var(--sun-deep)">回收</text>
+            <circle cx="240" cy="24" r="16" fill="var(--coral-tint)" stroke="var(--coral)" stroke-width="1.5"/>
+            <text x="240" y="28" text-anchor="middle" fill="var(--coral-deep)">再生</text>
+            <path d="M46 24h38" fill="none" stroke="var(--ink-faint)" stroke-width="1.5"/>
+            <path d="M80 20l4 4-4 4" fill="none" stroke="var(--ink-faint)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M116 24h38" fill="none" stroke="var(--ink-faint)" stroke-width="1.5"/>
+            <path d="M150 20l4 4-4 4" fill="none" stroke="var(--ink-faint)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M186 24h38" fill="none" stroke="var(--ink-faint)" stroke-width="1.5"/>
+            <path d="M220 20l4 4-4 4" fill="none" stroke="var(--ink-faint)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M240 40Q240 74 140 74Q40 74 30 40" fill="none" stroke="var(--ink-faint)" stroke-width="1.5" stroke-dasharray="3 3"/>
+            <path d="M25 47l5-9 6 8" fill="none" stroke="var(--ink-faint)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
           <a class="ref-link" href="https://www.gov.cn/zhengce/zhengceku/2020-12/05/content_5567136.htm" target="_blank" rel="noopener">住建部等《推进垃圾分类工作意见》<svg class="icon"><use href="#i-arrow"/></svg></a>
         </article>
         <article class="concept-card">
@@ -694,40 +746,40 @@ footer .icon{width:16px;height:16px;vertical-align:-3px;margin-right:6px;color:v
 
       <div class="tab-panel active" data-panel="home">
         <div class="tip-grid">
-          <label class="tip"><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span>随手关灯关电器，不用时拔掉插头，减少待机能耗</span></label>
-          <label class="tip"><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span>空调设定在 26°C 左右，减少极端温差带来的能耗</span></label>
-          <label class="tip"><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span>优先选用节能灯具（LED）和高能效家电</span></label>
-          <label class="tip"><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span>白天多利用自然采光和通风，减少不必要的照明</span></label>
-          <label class="tip"><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span>选购家电时留意能效标识，优先选择一级能效产品</span></label>
+          <label class="tip"><span class="tip-ic"><svg class="icon"><use href="#i-plug"/></svg></span><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span>随手关灯关电器，不用时拔掉插头，减少待机能耗</span></label>
+          <label class="tip"><span class="tip-ic"><svg class="icon"><use href="#i-thermo"/></svg></span><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span>空调设定在 26°C 左右，减少极端温差带来的能耗</span></label>
+          <label class="tip"><span class="tip-ic"><svg class="icon"><use href="#i-bulb"/></svg></span><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span>优先选用节能灯具（LED）和高能效家电</span></label>
+          <label class="tip"><span class="tip-ic"><svg class="icon"><use href="#i-sun"/></svg></span><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span>白天多利用自然采光和通风，减少不必要的照明</span></label>
+          <label class="tip"><span class="tip-ic"><svg class="icon"><use href="#i-gauge"/></svg></span><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span>选购家电时留意能效标识，优先选择一级能效产品</span></label>
         </div>
         <a class="ref-link" href="https://www.ndrc.gov.cn/xxgk/zcfb/tz/202605/t20260520_1405333.html" target="_blank" rel="noopener">国家节能宣传周官方通知<svg class="icon"><use href="#i-arrow"/></svg></a>
       </div>
       <div class="tab-panel" data-panel="travel">
         <div class="tip-grid">
-          <label class="tip"><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span>短途出行多步行、骑行，既低碳又健康</span></label>
-          <label class="tip"><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span>优先选择公交、地铁等公共交通工具</span></label>
-          <label class="tip"><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span>合乘拼车，提高车辆的载客效率</span></label>
-          <label class="tip"><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span>保持轮胎气压、定期保养车辆，降低油耗</span></label>
-          <label class="tip"><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span>条件允许时选择新能源汽车或共享单车等绿色出行方式</span></label>
+          <label class="tip"><span class="tip-ic"><svg class="icon"><use href="#i-bike"/></svg></span><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span>短途出行多步行、骑行，既低碳又健康</span></label>
+          <label class="tip"><span class="tip-ic"><svg class="icon"><use href="#i-bus"/></svg></span><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span>优先选择公交、地铁等公共交通工具</span></label>
+          <label class="tip"><span class="tip-ic"><svg class="icon"><use href="#i-car"/></svg></span><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span>合乘拼车，提高车辆的载客效率</span></label>
+          <label class="tip"><span class="tip-ic"><svg class="icon"><use href="#i-gauge"/></svg></span><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span>保持轮胎气压、定期保养车辆，降低油耗</span></label>
+          <label class="tip"><span class="tip-ic"><svg class="icon"><use href="#i-plug"/></svg></span><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span>条件允许时选择新能源汽车或共享单车等绿色出行方式</span></label>
         </div>
       </div>
       <div class="tab-panel" data-panel="waste">
         <div class="tip-grid">
-          <label class="tip"><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span>践行"光盘行动"，按需取餐，避免浪费</span></label>
-          <label class="tip"><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span>自带购物袋、水杯，减少一次性用品的使用</span></label>
-          <label class="tip"><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span>闲置旧物捐赠或二手交易，延长物品的使用寿命</span></label>
-          <label class="tip"><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span>认真做好垃圾分类，让可回收物真正被回收利用</span></label>
-          <label class="tip"><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span>参与旧衣、旧书回收计划，让闲置资源循环起来</span></label>
+          <label class="tip"><span class="tip-ic"><svg class="icon"><use href="#i-bowl"/></svg></span><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span>践行"光盘行动"，按需取餐，避免浪费</span></label>
+          <label class="tip"><span class="tip-ic"><svg class="icon"><use href="#i-bag"/></svg></span><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span>自带购物袋、水杯，减少一次性用品的使用</span></label>
+          <label class="tip"><span class="tip-ic"><svg class="icon"><use href="#i-gift"/></svg></span><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span>闲置旧物捐赠或二手交易，延长物品的使用寿命</span></label>
+          <label class="tip"><span class="tip-ic"><svg class="icon"><use href="#i-recycle"/></svg></span><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span>认真做好垃圾分类，让可回收物真正被回收利用</span></label>
+          <label class="tip"><span class="tip-ic"><svg class="icon"><use href="#i-box"/></svg></span><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span>参与旧衣、旧书回收计划，让闲置资源循环起来</span></label>
         </div>
         <a class="ref-link" href="https://www.gov.cn/zhengce/202411/content_6989265.htm" target="_blank" rel="noopener">《粮食节约和反食品浪费行动方案》<svg class="icon"><use href="#i-arrow"/></svg></a>
       </div>
       <div class="tab-panel" data-panel="water">
         <div class="tip-grid">
-          <label class="tip"><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span>用淋浴代替盆浴，缩短冲洗时间</span></label>
-          <label class="tip"><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span>发现水龙头滴漏及时维修，避免长期浪费</span></label>
-          <label class="tip"><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span>一水多用，比如用洗菜水浇花</span></label>
-          <label class="tip"><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span>使用节水型花洒与马桶，从源头减少用水量</span></label>
-          <label class="tip"><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span>安装水龙头起泡器，减小水流但不影响使用体验</span></label>
+          <label class="tip"><span class="tip-ic"><svg class="icon"><use href="#i-shower"/></svg></span><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span>用淋浴代替盆浴，缩短冲洗时间</span></label>
+          <label class="tip"><span class="tip-ic"><svg class="icon"><use href="#i-faucet"/></svg></span><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span>发现水龙头滴漏及时维修，避免长期浪费</span></label>
+          <label class="tip"><span class="tip-ic"><svg class="icon"><use href="#i-leaf"/></svg></span><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span>一水多用，比如用洗菜水浇花</span></label>
+          <label class="tip"><span class="tip-ic"><svg class="icon"><use href="#i-droplet"/></svg></span><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span>使用节水型花洒与马桶，从源头减少用水量</span></label>
+          <label class="tip"><span class="tip-ic"><svg class="icon"><use href="#i-droplet"/></svg></span><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span>安装水龙头起泡器，减小水流但不影响使用体验</span></label>
         </div>
       </div>
       <p class="tracker">已打卡 <b id="tipCount">0</b> / 20 个生活习惯</p>
