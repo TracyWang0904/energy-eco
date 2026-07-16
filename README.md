@@ -1,6 +1,6 @@
 # 清能笔记 · 能源环保通识课
 
-一个清新蓝绿色调的能源环保科普网页，纯前端单文件实现（HTML + CSS + JS，无需构建、无第三方依赖），适合作为科普宣传页或课堂互动素材使用。
+能源环保科普网页，纯前端单文件实现（HTML + CSS + JS，无需构建、无第三方依赖），适合作为科普宣传页或课堂互动素材使用。
 
 **在线访问：[https://tracywang0904.github.io/energy-eco/](https://tracywang0904.github.io/energy-eco/)**
 
