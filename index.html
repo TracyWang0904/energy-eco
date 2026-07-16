@@ -251,8 +251,19 @@ a{color:inherit;}
 .concept-card:nth-child(3) .ic{color:var(--coral-deep);background:var(--coral-tint);}
 .concept-card:nth-child(4) .ic{color:var(--sky-deep);background:var(--sky-tint);}
 .concept-card:nth-child(6) .ic{color:var(--sun-deep);background:var(--sun-tint);}
+.concept-card:nth-child(7) .ic{color:var(--sky-deep);background:var(--sky-tint);}
+.concept-card:nth-child(8) .ic{color:var(--coral-deep);background:var(--coral-tint);}
+.concept-card:nth-child(9) .ic{color:var(--sun-deep);background:var(--sun-tint);}
 .concept-card h3{font-size:1.12rem;margin-bottom:8px;}
 .concept-card p{color:var(--ink-soft);font-size:.94rem;}
+
+.ref-link{
+  display:inline-flex;align-items:center;gap:4px;margin-top:12px;
+  font-size:.8rem;font-weight:800;color:var(--sky-deep);text-decoration:none;
+}
+.ref-link .icon{width:13px;height:13px;stroke-width:3;}
+.ref-link:hover{text-decoration:underline;color:var(--teal-deep);}
+.ref-link:hover .icon{color:var(--teal-deep);}
 
 /* why section */
 .why-layout{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;}
@@ -269,6 +280,8 @@ a{color:inherit;}
 }
 .stat-panel h3{font-size:1.05rem;margin-bottom:6px;}
 .stat-panel .cite{font-size:.78rem;color:var(--ink-faint);margin-bottom:20px;}
+.stat-panel .cite a{color:var(--sky-deep);font-weight:700;text-decoration:none;}
+.stat-panel .cite a:hover{text-decoration:underline;}
 .stat-row{display:flex;align-items:baseline;gap:10px;margin-bottom:16px;}
 .stat-row .num{font-family:var(--font-display);font-weight:800;font-size:1.9rem;color:var(--teal-deep);font-variant-numeric:tabular-nums;}
 .stat-row .lbl{color:var(--ink-soft);font-size:.9rem;}
@@ -476,6 +489,13 @@ footer .icon{width:16px;height:16px;vertical-align:-3px;margin-right:6px;color:v
 <symbol id="i-leaf" viewBox="0 0 48 48"><path fill="var(--teal)" stroke="none" d="M10 38C6 20 20 8 40 8c2 20-10 32-30 30Z"/><path fill="var(--sky)" stroke="none" opacity=".6" d="M40 8c1.5 13-5 23-17 27.5 6.5-3 13-10.5 14.6-21C38.2 11 38.6 9.4 40 8Z"/><path fill="none" stroke="var(--bg)" stroke-width="1.5" stroke-linecap="round" opacity=".55" d="M13 34C18 27 26 18 34 12"/><path fill="none" stroke="var(--bg)" stroke-width="1.1" stroke-linecap="round" opacity=".55" d="M19 28L23 32M24 22L28 26M29 17L32 20"/></symbol>
 <symbol id="i-spark" viewBox="0 0 48 48"><path d="M24 4c1 8 4 12 12 14-8 2-11 6-12 14-1-8-4-12-12-14 8-2 11-6 12-14Z"/><path d="M39 30c.6 4 2 5.6 6 6.4-4 .8-5.4 2.4-6 6.4-.6-4-2-5.6-6-6.4 4-.8 5.4-2.4 6-6.4Z"/></symbol>
 <symbol id="i-turbine" viewBox="0 0 48 48"><path d="M24 44V18"/><circle class="filled" cx="24" cy="16" r="2.4"/><path d="M24 16c6-2 9-8 8-13-6 1-10 6-8 13ZM24 16c-2 6-8 9-13 8 1-6 6-10 13-8ZM24 16c5 3 6 10 3 15-5-3-6-10-3-15Z"/></symbol>
+<symbol id="i-gauge" viewBox="0 0 48 48"><path d="M7 33a17 17 0 1 1 34 0"/><path d="M24 33 34 20" stroke-width="2.6"/><circle fill="currentColor" stroke="none" cx="24" cy="33" r="2.8"/><path d="M7 33h4M37 33h4M24 11v4" stroke-width="2"/></symbol>
+<symbol id="i-globe" viewBox="0 0 48 48"><circle cx="24" cy="24" r="18"/><path d="M6 24h36M24 6c6 6 6 30 0 36M24 6c-6 6-6 30 0 36"/><path d="M9.5 15c8 4 21 4 29 0M9.5 33c8-4 21-4 29 0"/></symbol>
+<symbol id="i-can" viewBox="0 0 48 48"><path d="M15 12h18l-1.6 26.2a3 3 0 0 1-3 2.8h-8.8a3 3 0 0 1-3-2.8Z"/><path d="M15 12c0-2.2 4-3.5 9-3.5s9 1.3 9 3.5-4 3.5-9 3.5-9-1.3-9-3.5Z"/><path d="M21 8.6c0-1.5 1.3-2.6 3-2.6s3 1.1 3 2.6" stroke-width="1.6"/></symbol>
+<symbol id="i-tea" viewBox="0 0 48 48"><path d="M8 20h24v9a10 9 0 0 1-10 9h-4a10 9 0 0 1-10-9Z"/><path d="M32 22h3.5a5 5 0 0 1 0 10H33"/><path d="M14 13c1-2 3-2 3-4M21 13c1-2 3-2 3-4" stroke-width="1.8"/></symbol>
+<symbol id="i-tube" viewBox="0 0 48 48"><rect x="3" y="21" width="6" height="6" rx="1.5"/><rect x="39" y="21" width="6" height="6" rx="1.5"/><rect x="9" y="19.5" width="30" height="9" rx="4.5"/><path d="M15 24h2M21 24h2M27 24h2M33 24h2" stroke-width="1.6"/></symbol>
+<symbol id="i-cigarette" viewBox="0 0 48 48"><path d="M6 25.5h21a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2Z"/><path fill="currentColor" stroke="none" d="M29 25.5h9a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-9Z"/><path d="M4 21.5l3.5-4M10 21.5l3-3.5" stroke-width="1.6"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 48 48"><path d="M10 24h28M28 12l12 12-12 12"/></symbol>
 </defs>
 </svg>
 
@@ -556,6 +576,7 @@ footer .icon{width:16px;height:16px;vertical-align:-3px;margin-right:6px;color:v
           <div class="ic"><svg class="icon"><use href="#i-sun"/></svg></div>
           <h3>可再生能源</h3>
           <p>太阳能、风能、水能、地热能等能够循环补充、几乎用之不竭的能源，是未来能源结构的主角。</p>
+          <a class="ref-link" href="http://www.nea.gov.cn/sjzz/xny/" target="_blank" rel="noopener">国家能源局 · 新能源与可再生能源<svg class="icon"><use href="#i-arrow"/></svg></a>
         </article>
         <article class="concept-card">
           <div class="ic"><svg class="icon"><use href="#i-flame"/></svg></div>
@@ -566,21 +587,41 @@ footer .icon{width:16px;height:16px;vertical-align:-3px;margin-right:6px;color:v
           <div class="ic"><svg class="icon"><use href="#i-thermo"/></svg></div>
           <h3>碳排放与温室效应</h3>
           <p>燃烧化石能源会释放二氧化碳等温室气体，它们像一层"棉被"包裹地球，让热量难以散出，导致气候变暖。</p>
+          <a class="ref-link" href="https://www.ipcc.ch/sr15/" target="_blank" rel="noopener">IPCC《全球升温1.5°C特别报告》<svg class="icon"><use href="#i-arrow"/></svg></a>
         </article>
         <article class="concept-card">
           <div class="ic"><svg class="icon"><use href="#i-peak"/></svg></div>
           <h3>碳达峰 / 碳中和</h3>
           <p>碳达峰指碳排放量达到历史最高点后开始下降的拐点；碳中和指排放与吸收互相抵消，净排放趋近于零。</p>
+          <a class="ref-link" href="https://www.gov.cn/zhengce/content/2021-10/26/content_5644984.htm" target="_blank" rel="noopener">国务院《2030年前碳达峰行动方案》<svg class="icon"><use href="#i-arrow"/></svg></a>
         </article>
         <article class="concept-card">
           <div class="ic"><svg class="icon"><use href="#i-bulb"/></svg></div>
           <h3>节能减排</h3>
           <p>通过提升能源使用效率、减少不必要的浪费，从源头降低污染物和温室气体的排放。</p>
+          <a class="ref-link" href="https://www.ndrc.gov.cn/xxgk/zcfb/tz/202605/t20260520_1405333.html" target="_blank" rel="noopener">国家节能宣传周官方通知<svg class="icon"><use href="#i-arrow"/></svg></a>
         </article>
         <article class="concept-card">
           <div class="ic"><svg class="icon"><use href="#i-footprint"/></svg></div>
           <h3>碳足迹</h3>
           <p>个人或组织的衣食住行等活动间接产生的温室气体排放总量，可以通过日常选择一点点缩小。</p>
+        </article>
+        <article class="concept-card">
+          <div class="ic"><svg class="icon"><use href="#i-gauge"/></svg></div>
+          <h3>能源效率 / 能效标识</h3>
+          <p>同样完成一件事，消耗的能源越少，能源效率就越高。家电上的"能效标识"（1-3级）能帮你一眼看出耗电水平。</p>
+        </article>
+        <article class="concept-card">
+          <div class="ic"><svg class="icon"><use href="#i-recycle"/></svg></div>
+          <h3>循环经济</h3>
+          <p>让废弃物重新变成可用资源、尽量减少"开采—使用—丢弃"这种单向消耗模式，是应对资源紧张的重要思路。</p>
+          <a class="ref-link" href="https://www.gov.cn/zhengce/zhengceku/2020-12/05/content_5567136.htm" target="_blank" rel="noopener">住建部等《推进垃圾分类工作意见》<svg class="icon"><use href="#i-arrow"/></svg></a>
+        </article>
+        <article class="concept-card">
+          <div class="ic"><svg class="icon"><use href="#i-globe"/></svg></div>
+          <h3>国际气候合作</h3>
+          <p>气候变化是全球性问题，《巴黎协定》等国际协议和联合国可持续发展目标，推动各国共同减排、共享清洁能源技术。</p>
+          <a class="ref-link" href="https://www.un.org/sustainabledevelopment/energy/" target="_blank" rel="noopener">联合国 SDG7 · 经济适用的清洁能源<svg class="icon"><use href="#i-arrow"/></svg></a>
         </article>
       </div>
     </div>
@@ -616,16 +657,21 @@ footer .icon{width:16px;height:16px;vertical-align:-3px;margin-right:6px;color:v
             <div class="ic"><svg class="icon"><use href="#i-coin"/></svg></div>
             <div><h4>节能也是省钱</h4><p>提升能效能直接降低家庭电费、企业运营成本，环保和省钱常常是一件事的两面。</p></div>
           </div>
+          <div class="why-item">
+            <div class="ic"><svg class="icon"><use href="#i-globe"/></svg></div>
+            <div><h4>这是全球共同的行动</h4><p>从《巴黎协定》到联合国可持续发展目标，世界各国正在共同承诺减排、发展清洁能源——个人的选择也是这场行动的一部分。</p></div>
+          </div>
         </div>
         <div class="stat-panel">
           <h3>一组值得记住的参考数据</h3>
-          <p class="cite">数据参考自 IPCC（联合国政府间气候变化专门委员会）等公开资料，用于示意</p>
+          <p class="cite">数据参考自 <a href="https://www.ipcc.ch/sr15/" target="_blank" rel="noopener">IPCC《全球升温1.5°C特别报告》</a>等公开资料，用于示意</p>
           <div class="stat-row"><span class="num">≈1.1°C</span><span class="lbl">全球平均气温较工业化前的升幅</span></div>
           <div class="bar-track"><div class="bar-fill" style="width:55%"></div></div>
           <div class="stat-row"><span class="num">3 类</span><span class="lbl">化石能源（煤、石油、天然气）均不可再生</span></div>
           <div class="bar-track"><div class="bar-fill" style="width:78%"></div></div>
           <div class="stat-row"><span class="num">人人可为</span><span class="lbl">生活方式的改变能切实降低个人碳足迹</span></div>
           <div class="bar-track"><div class="bar-fill" style="width:92%"></div></div>
+          <a class="ref-link" href="https://www.un.org/sustainabledevelopment/energy/" target="_blank" rel="noopener">查看联合国 SDG7 清洁能源目标<svg class="icon"><use href="#i-arrow"/></svg></a>
         </div>
       </div>
     </div>
@@ -652,7 +698,9 @@ footer .icon{width:16px;height:16px;vertical-align:-3px;margin-right:6px;color:v
           <label class="tip"><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span>空调设定在 26°C 左右，减少极端温差带来的能耗</span></label>
           <label class="tip"><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span>优先选用节能灯具（LED）和高能效家电</span></label>
           <label class="tip"><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span>白天多利用自然采光和通风，减少不必要的照明</span></label>
+          <label class="tip"><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span>选购家电时留意能效标识，优先选择一级能效产品</span></label>
         </div>
+        <a class="ref-link" href="https://www.ndrc.gov.cn/xxgk/zcfb/tz/202605/t20260520_1405333.html" target="_blank" rel="noopener">国家节能宣传周官方通知<svg class="icon"><use href="#i-arrow"/></svg></a>
       </div>
       <div class="tab-panel" data-panel="travel">
         <div class="tip-grid">
@@ -660,6 +708,7 @@ footer .icon{width:16px;height:16px;vertical-align:-3px;margin-right:6px;color:v
           <label class="tip"><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span>优先选择公交、地铁等公共交通工具</span></label>
           <label class="tip"><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span>合乘拼车，提高车辆的载客效率</span></label>
           <label class="tip"><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span>保持轮胎气压、定期保养车辆，降低油耗</span></label>
+          <label class="tip"><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span>条件允许时选择新能源汽车或共享单车等绿色出行方式</span></label>
         </div>
       </div>
       <div class="tab-panel" data-panel="waste">
@@ -668,7 +717,9 @@ footer .icon{width:16px;height:16px;vertical-align:-3px;margin-right:6px;color:v
           <label class="tip"><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span>自带购物袋、水杯，减少一次性用品的使用</span></label>
           <label class="tip"><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span>闲置旧物捐赠或二手交易，延长物品的使用寿命</span></label>
           <label class="tip"><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span>认真做好垃圾分类，让可回收物真正被回收利用</span></label>
+          <label class="tip"><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span>参与旧衣、旧书回收计划，让闲置资源循环起来</span></label>
         </div>
+        <a class="ref-link" href="https://www.gov.cn/zhengce/202411/content_6989265.htm" target="_blank" rel="noopener">《粮食节约和反食品浪费行动方案》<svg class="icon"><use href="#i-arrow"/></svg></a>
       </div>
       <div class="tab-panel" data-panel="water">
         <div class="tip-grid">
@@ -676,9 +727,10 @@ footer .icon{width:16px;height:16px;vertical-align:-3px;margin-right:6px;color:v
           <label class="tip"><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span>发现水龙头滴漏及时维修，避免长期浪费</span></label>
           <label class="tip"><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span>一水多用，比如用洗菜水浇花</span></label>
           <label class="tip"><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span>使用节水型花洒与马桶，从源头减少用水量</span></label>
+          <label class="tip"><span class="box"><svg class="icon"><use href="#i-check"/></svg></span><span>安装水龙头起泡器，减小水流但不影响使用体验</span></label>
         </div>
       </div>
-      <p class="tracker">已打卡 <b id="tipCount">0</b> / 16 个生活习惯</p>
+      <p class="tracker">已打卡 <b id="tipCount">0</b> / 20 个生活习惯</p>
     </div>
   </section>
 
@@ -689,6 +741,7 @@ footer .icon{width:16px;height:16px;vertical-align:-3px;margin-right:6px;color:v
         <span class="kicker"><svg class="icon"><use href="#i-recycle"/></svg>PART 4</span>
         <h2>小游戏：变废为能</h2>
         <p>把下面的垃圾拖进正确的分类桶，再选出它们最终能转化成什么能源或处理方式，看看你能答对多少。</p>
+        <a class="ref-link" href="https://www.gov.cn/zhengce/zhengceku/2020-12/05/content_5567136.htm" target="_blank" rel="noopener">国家生活垃圾分类工作官方意见<svg class="icon"><use href="#i-arrow"/></svg></a>
       </div>
 
       <div class="game-shell">
@@ -832,17 +885,21 @@ footer .icon{width:16px;height:16px;vertical-align:-3px;margin-right:6px;color:v
   var TRASH_ITEMS = [
     {id:"box",     label:"废纸箱",     icon:"i-box",     bin:"recycle"},
     {id:"bottle",  label:"塑料饮料瓶", icon:"i-bottle",  bin:"recycle"},
+    {id:"can",     label:"易拉罐",     icon:"i-can",     bin:"recycle"},
     {id:"apple",   label:"苹果核",     icon:"i-apple",   bin:"food"},
     {id:"bowl",    label:"剩饭菜",     icon:"i-bowl",    bin:"food"},
+    {id:"tea",     label:"茶叶渣",     icon:"i-tea",     bin:"food"},
     {id:"battery", label:"废旧电池",   icon:"i-battery", bin:"hazard"},
     {id:"pill",    label:"过期药品",   icon:"i-pill",    bin:"hazard"},
+    {id:"tube",    label:"废旧灯管",   icon:"i-tube",    bin:"hazard"},
     {id:"tissue",  label:"用过的纸巾", icon:"i-tissue",  bin:"other"},
-    {id:"shard",   label:"陶瓷碎片",   icon:"i-shard",   bin:"other"}
+    {id:"shard",   label:"陶瓷碎片",   icon:"i-shard",   bin:"other"},
+    {id:"cigarette", label:"烟蒂",     icon:"i-cigarette", bin:"other"}
   ];
 
   var ENERGY_QUESTIONS = {
     recycle: {
-      label:"可回收物（废纸箱 / 塑料瓶）",
+      label:"可回收物（废纸箱 / 塑料瓶 / 易拉罐）",
       icon:"i-recycle",
       question:"这类垃圾最合适的处理方式是？",
       options:[
@@ -854,7 +911,7 @@ footer .icon{width:16px;height:16px;vertical-align:-3px;margin-right:6px;color:v
       explain:"可回收物（废纸、塑料、金属、玻璃等）经过回收加工可以变成新材料，相当于替代了开采原料所需的能源，是最节能的处理方式。"
     },
     food:{
-      label:"厨余垃圾（苹果核 / 剩饭菜）",
+      label:"厨余垃圾（苹果核 / 剩饭菜 / 茶叶渣）",
       icon:"i-food",
       question:"这类垃圾经处理后主要可以转化成？",
       options:[
@@ -866,7 +923,7 @@ footer .icon{width:16px;height:16px;vertical-align:-3px;margin-right:6px;color:v
       explain:"厨余垃圾富含有机质，经厌氧发酵等处理可以产生沼气用于发电或供热，也可以堆肥还田，是常见的生物质能来源。"
     },
     hazard:{
-      label:"有害垃圾（废旧电池 / 过期药品）",
+      label:"有害垃圾（废旧电池 / 过期药品 / 废旧灯管）",
       icon:"i-hazard",
       question:"这类垃圾应该如何处理？",
       options:[
@@ -875,10 +932,10 @@ footer .icon{width:16px;height:16px;vertical-align:-3px;margin-right:6px;color:v
         {t:"回收后直接再利用",correct:false},
         {t:"随意丢弃即可",correct:false}
       ],
-      explain:"电池、药品等含有重金属或化学成分，一旦处理不当会污染土壤和水源，必须交由专业机构进行无害化处理，而不是用来产能。"
+      explain:"电池、药品、灯管等含有重金属或化学成分（比如灯管里的汞），一旦处理不当会污染土壤和水源，必须交由专业机构进行无害化处理，而不是用来产能。"
     },
     other:{
-      label:"其他垃圾（纸巾 / 陶瓷碎片）",
+      label:"其他垃圾（纸巾 / 陶瓷碎片 / 烟蒂）",
       icon:"i-trash",
       question:"这类难以回收又不属于厨余、有害的垃圾，通常怎么处理？",
       options:[
@@ -1056,7 +1113,7 @@ footer .icon{width:16px;height:16px;vertical-align:-3px;margin-right:6px;color:v
       explainHTML += '<div class="explain-item '+(ok?"ok":"bad")+'"><svg class="icon"><use href="#'+(ok?"i-check":"i-cross")+'"/></svg><div><b>'+q.label+'：</b>'+q.explain+'</div></div>';
     });
 
-    gameResult.innerHTML = '<h3>本轮结果</h3><p>垃圾分类 <b class="score">'+itemsCorrect+'/8</b> 正确 · 能源转化选择 <b class="score">'+energyCorrect+'/4</b> 正确</p><div class="explain-list">'+explainHTML+'</div>';
+    gameResult.innerHTML = '<h3>本轮结果</h3><p>垃圾分类 <b class="score">'+itemsCorrect+'/'+TRASH_ITEMS.length+'</b> 正确 · 能源转化选择 <b class="score">'+energyCorrect+'/4</b> 正确</p><div class="explain-list">'+explainHTML+'</div>';
     gameResult.classList.add("show");
     gameResult.scrollIntoView({behavior:"smooth", block:"nearest"});
   });
@@ -1081,7 +1138,21 @@ footer .icon{width:16px;height:16px;vertical-align:-3px;margin-right:6px;color:v
     {q:"用过的纸巾、陶瓷碎片这类难以回收的垃圾，通常归为？",opts:["可回收物","其他垃圾，多焚烧发电或填埋","厨余垃圾","有害垃圾"],correct:1},
     {q:'"碳足迹"指的是？',opts:["脚踩过的碳灰痕迹","个人或组织活动间接产生的温室气体排放总量","汽车轮胎的碳纤维含量","二氧化碳的化学式"],correct:1},
     {q:"下列哪项属于节约用水的好习惯？",opts:["水龙头滴漏不用管","用淋浴代替盆浴，缩短冲洗时间","天天泡澡更解压","洗菜水直接倒掉"],correct:1},
-    {q:"关于节能减排，下列说法正确的是？",opts:["只是政府和企业的事，与个人无关","个人生活习惯的改变也能做出贡献","不开车就等于零碳排放","可再生能源目前完全无法使用"],correct:1}
+    {q:"关于节能减排，下列说法正确的是？",opts:["只是政府和企业的事，与个人无关","个人生活习惯的改变也能做出贡献","不开车就等于零碳排放","可再生能源目前完全无法使用"],correct:1},
+    {q:"中国提出的“双碳”目标中，碳达峰的目标年份是？",opts:["2025年","2030年","2050年","2060年"],correct:1},
+    {q:"中国“双碳”目标中，碳中和的目标年份是？",opts:["2030年","2050年","2060年","2100年"],correct:2},
+    {q:"世界地球日是每年的哪一天？",opts:["3月22日","4月22日","6月5日","12月22日"],correct:1},
+    {q:"联合国可持续发展目标（SDGs）中，“经济适用的清洁能源”是第几项目标？",opts:["SDG5","SDG7","SDG13","SDG17"],correct:1},
+    {q:"中国“全国低碳日”通常安排在哪个时段？",opts:["植树节期间","全国节能宣传周期间","国庆节期间","春节期间"],correct:1},
+    {q:"IPCC 的中文全称是？",opts:["国际能源署","政府间气候变化专门委员会","世界气象组织","联合国环境规划署"],correct:1},
+    {q:"下列哪一项属于“循环经济”的做法？",opts:["用完即扔，鼓励一次性消费","让废弃物重新变成可用资源，减少浪费","只关注生产不关注回收","尽量多开采原生资源"],correct:1},
+    {q:"家电上的“能效标识”（能效等级）的作用是？",opts:["标明产品价格","标明产品颜色","帮助消费者识别耗电效率高低","标明保修期限"],correct:2},
+    {q:"下列关于易拉罐（金属饮料罐）的处理方式，正确的是？",opts:["属于可回收物，回收后可重新炼制利用","属于厨余垃圾","属于有害垃圾","无法回收只能填埋"],correct:0},
+    {q:"用过的茶叶渣通常属于哪类垃圾？",opts:["有害垃圾","厨余垃圾，可用于堆肥","可回收物","其他垃圾"],correct:1},
+    {q:"废旧灯管（如日光灯管）属于哪类垃圾？",opts:["厨余垃圾","可回收物","有害垃圾，含汞等有害物质，需专业处理","其他垃圾"],correct:2},
+    {q:"烟蒂通常应该归为哪类垃圾？",opts:["可回收物","厨余垃圾","其他垃圾","有害垃圾"],correct:2},
+    {q:"《巴黎协定》主要是关于？",opts:["全球贸易规则","各国共同应对气候变化的国际协议","国际海洋法","世界卫生规则"],correct:1},
+    {q:"下列哪项做法属于“减少浪费”的低碳生活方式？",opts:["鼓励多用一次性餐具更卫生","旧物捐赠或二手交易，延长物品使用寿命","买了不用也没关系","随意丢弃闲置物品"],correct:1}
   ];
 
   var quizIntro = document.getElementById("quizIntro");
