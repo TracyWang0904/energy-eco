@@ -240,8 +240,10 @@ a{color:inherit;}
   background:var(--surface);border-radius:var(--radius-lg);padding:22px;
   box-shadow:var(--shadow-sm);border:1px solid var(--line);
   transition:transform .2s ease, box-shadow .2s ease;
+  cursor:pointer;display:flex;flex-direction:column;
 }
 .concept-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);}
+.concept-card:focus-visible{outline:3px solid var(--sky);outline-offset:2px;}
 .concept-card .ic{
   width:50px;height:50px;border-radius:16px;display:flex;align-items:center;justify-content:center;
   color:var(--teal-deep);background:var(--teal-tint);margin-bottom:14px;
@@ -266,6 +268,66 @@ a{color:inherit;}
 .ref-link .icon{width:13px;height:13px;stroke-width:3;}
 .ref-link:hover{text-decoration:underline;color:var(--teal-deep);}
 .ref-link:hover .icon{color:var(--teal-deep);}
+
+.card-more{
+  display:flex;align-items:center;gap:5px;margin-top:auto;padding-top:14px;
+  font-size:.82rem;font-weight:800;color:var(--teal-deep);
+}
+.card-more .icon{width:14px;height:14px;stroke-width:3;transition:transform .18s ease;}
+.concept-card:hover .card-more .icon{transform:translateX(3px);}
+
+/* ---------- concept detail modal ---------- */
+.detail-overlay{
+  position:fixed;inset:0;z-index:100;background:rgba(8,32,29,.5);
+  display:flex;align-items:center;justify-content:center;padding:24px;
+  opacity:0;pointer-events:none;transition:opacity .2s ease;
+}
+.detail-overlay.show{opacity:1;pointer-events:auto;}
+.detail-modal{
+  background:var(--surface);border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);
+  width:100%;max-width:640px;max-height:85vh;overflow-y:auto;padding:clamp(20px,4vw,36px);
+  transform:translateY(14px) scale(.98);transition:transform .22s ease;position:relative;
+}
+.detail-overlay.show .detail-modal{transform:translateY(0) scale(1);}
+.detail-close{
+  position:absolute;top:16px;right:16px;width:34px;height:34px;border-radius:50%;border:none;
+  background:var(--surface-soft);color:var(--ink-soft);display:flex;align-items:center;justify-content:center;
+}
+.detail-close .icon{width:16px;height:16px;}
+.detail-close:hover{background:var(--coral-tint);color:var(--coral-deep);}
+.detail-head{display:flex;align-items:center;gap:14px;margin-bottom:20px;padding-right:40px;}
+.detail-head .ic{
+  flex:none;width:52px;height:52px;border-radius:16px;display:flex;align-items:center;justify-content:center;
+  color:var(--teal-deep);background:var(--teal-tint);
+}
+.detail-head .ic .icon{width:27px;height:27px;}
+.detail-head h3{font-size:1.3rem;}
+
+.audio-bar{
+  display:flex;align-items:center;gap:14px;background:var(--surface-alt);border-radius:var(--radius-pill);
+  padding:8px 18px 8px 8px;margin-bottom:24px;
+}
+.audio-playbtn{
+  flex:none;width:44px;height:44px;border-radius:50%;border:none;background:var(--teal);color:#fff;
+  display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-sm);transition:background .15s ease, transform .15s ease;
+}
+.audio-playbtn:hover{background:var(--teal-deep);transform:scale(1.05);}
+.audio-playbtn .icon{width:18px;height:18px;}
+.audio-progress-track{flex:1;height:7px;border-radius:var(--radius-pill);background:var(--surface-soft);overflow:hidden;cursor:pointer;position:relative;}
+.audio-progress-fill{height:100%;background:linear-gradient(90deg,var(--teal),var(--sky));border-radius:var(--radius-pill);width:0%;}
+.audio-time{flex:none;font-size:.76rem;font-weight:700;color:var(--ink-faint);font-variant-numeric:tabular-nums;white-space:nowrap;}
+.audio-note{font-size:.74rem;color:var(--ink-faint);margin:-14px 0 20px;}
+
+.detail-body p{color:var(--ink);font-size:1rem;line-height:1.9;margin-bottom:16px;}
+.detail-body .sentence{cursor:pointer;border-radius:4px;transition:background .15s ease, color .15s ease;padding:0 1px;}
+.detail-body .sentence:hover{background:var(--surface-soft);}
+.detail-body .sentence.active{background:var(--teal-tint);color:var(--teal-deep);font-weight:700;}
+
+.detail-source{
+  margin-top:22px;padding:16px 18px;border-radius:var(--radius-md);background:var(--surface-alt);
+  border:1px solid var(--line);
+}
+.detail-source .label{font-size:.78rem;color:var(--ink-faint);font-weight:700;margin-bottom:6px;display:block;}
 
 /* why section */
 .why-layout{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;}
@@ -509,6 +571,9 @@ footer .icon{width:16px;height:16px;vertical-align:-3px;margin-right:6px;color:v
 <symbol id="i-shower" viewBox="0 0 48 48"><path d="M11 18a11 11 0 0 1 20-6.5"/><path d="M8 21h28a2 2 0 0 0 2-2 7 7 0 0 0-7-7H17a9 9 0 0 0-9 9Z"/><path d="M15 27v3M23 27v3M31 27v3M15 35v3M23 35v3M31 35v3" stroke-width="2.2"/></symbol>
 <symbol id="i-faucet" viewBox="0 0 48 48"><path d="M14 10v9"/><path d="M14 19h20a5 5 0 0 1 5 5"/><path d="M39 24v6"/><path d="M35.5 34c0 3.3 1.6 5.5 3.5 5.5s3.5-2.2 3.5-5.5-3.5-6.5-3.5-6.5-3.5 3.2-3.5 6.5Z"/></symbol>
 <symbol id="i-gift" viewBox="0 0 48 48"><rect x="8" y="20" width="32" height="20" rx="2"/><path d="M8 28h32"/><path d="M24 20v20"/><path d="M24 20c-3-9-15-9-15-2 0 3.5 5 2 15 2ZM24 20c3-9 15-9 15-2 0 3.5-5 2-15 2Z"/></symbol>
+<symbol id="i-play" viewBox="0 0 48 48"><path d="M14 8.5v31l27-15.5Z" fill="currentColor" stroke="none"/></symbol>
+<symbol id="i-pause" viewBox="0 0 48 48"><rect x="12" y="9" width="9" height="30" rx="2.5" fill="currentColor" stroke="none"/><rect x="27" y="9" width="9" height="30" rx="2.5" fill="currentColor" stroke="none"/></symbol>
+<symbol id="i-sound" viewBox="0 0 48 48"><path d="M6 18v12h8l12 9V9L14 18Z"/><path d="M33 16a11 11 0 0 1 0 16M39 10a19 19 0 0 1 0 28"/></symbol>
 </defs>
 </svg>
 
@@ -584,19 +649,20 @@ footer .icon{width:16px;height:16px;vertical-align:-3px;margin-right:6px;color:v
         <h2>先弄懂几个基础概念</h2>
         <p>能源环保听起来专业，其实拆开就是这几个常见词——弄懂它们，后面的内容会顺畅很多。</p>
       </div>
-      <div class="concept-grid">
-        <article class="concept-card">
+      <div class="concept-grid" id="conceptGrid">
+        <article class="concept-card" data-concept="renewable" tabindex="0" role="button" aria-haspopup="dialog">
           <div class="ic"><svg class="icon"><use href="#i-sun"/></svg></div>
           <h3>可再生能源</h3>
           <p>太阳能、风能、水能、地热能等能够循环补充、几乎用之不竭的能源，是未来能源结构的主角。</p>
-          <a class="ref-link" href="http://www.nea.gov.cn/sjzz/xny/" target="_blank" rel="noopener">国家能源局 · 新能源与可再生能源<svg class="icon"><use href="#i-arrow"/></svg></a>
+          <span class="card-more">查看详情 · 听读<svg class="icon"><use href="#i-arrow"/></svg></span>
         </article>
-        <article class="concept-card">
+        <article class="concept-card" data-concept="fossil" tabindex="0" role="button" aria-haspopup="dialog">
           <div class="ic"><svg class="icon"><use href="#i-flame"/></svg></div>
           <h3>不可再生能源</h3>
           <p>煤炭、石油、天然气等经过亿万年地质作用形成的化石能源，用一点少一点，开采和燃烧都会带来环境代价。</p>
+          <span class="card-more">查看详情 · 听读<svg class="icon"><use href="#i-arrow"/></svg></span>
         </article>
-        <article class="concept-card">
+        <article class="concept-card" data-concept="greenhouse" tabindex="0" role="button" aria-haspopup="dialog">
           <div class="ic"><svg class="icon"><use href="#i-thermo"/></svg></div>
           <h3>碳排放与温室效应</h3>
           <p>燃烧化石能源会释放二氧化碳等温室气体，它们像一层"棉被"包裹地球，让热量难以散出，导致气候变暖。</p>
@@ -612,9 +678,9 @@ footer .icon{width:16px;height:16px;vertical-align:-3px;margin-right:6px;color:v
             <line x1="10" y1="90" x2="272" y2="90" stroke="var(--ink)" stroke-width="2" stroke-linecap="round"/>
             <text x="141" y="102" text-anchor="middle">地表（热量被留住，温度上升）</text>
           </svg>
-          <a class="ref-link" href="https://www.ipcc.ch/sr15/" target="_blank" rel="noopener">IPCC《全球升温1.5°C特别报告》<svg class="icon"><use href="#i-arrow"/></svg></a>
+          <span class="card-more">查看详情 · 听读<svg class="icon"><use href="#i-arrow"/></svg></span>
         </article>
-        <article class="concept-card">
+        <article class="concept-card" data-concept="carbon_peak" tabindex="0" role="button" aria-haspopup="dialog">
           <div class="ic"><svg class="icon"><use href="#i-peak"/></svg></div>
           <h3>碳达峰 / 碳中和</h3>
           <p>碳达峰指碳排放量达到历史最高点后开始下降的拐点；碳中和指排放与吸收互相抵消，净排放趋近于零。</p>
@@ -627,25 +693,27 @@ footer .icon{width:16px;height:16px;vertical-align:-3px;margin-right:6px;color:v
             <text x="100" y="14" text-anchor="middle">2030 碳达峰</text>
             <text x="269" y="14" text-anchor="end">2060 碳中和</text>
           </svg>
-          <a class="ref-link" href="https://www.gov.cn/zhengce/content/2021-10/26/content_5644984.htm" target="_blank" rel="noopener">国务院《2030年前碳达峰行动方案》<svg class="icon"><use href="#i-arrow"/></svg></a>
+          <span class="card-more">查看详情 · 听读<svg class="icon"><use href="#i-arrow"/></svg></span>
         </article>
-        <article class="concept-card">
+        <article class="concept-card" data-concept="energy_saving" tabindex="0" role="button" aria-haspopup="dialog">
           <div class="ic"><svg class="icon"><use href="#i-bulb"/></svg></div>
           <h3>节能减排</h3>
           <p>通过提升能源使用效率、减少不必要的浪费，从源头降低污染物和温室气体的排放。</p>
-          <a class="ref-link" href="https://www.ndrc.gov.cn/xxgk/zcfb/tz/202605/t20260520_1405333.html" target="_blank" rel="noopener">国家节能宣传周官方通知<svg class="icon"><use href="#i-arrow"/></svg></a>
+          <span class="card-more">查看详情 · 听读<svg class="icon"><use href="#i-arrow"/></svg></span>
         </article>
-        <article class="concept-card">
+        <article class="concept-card" data-concept="footprint" tabindex="0" role="button" aria-haspopup="dialog">
           <div class="ic"><svg class="icon"><use href="#i-footprint"/></svg></div>
           <h3>碳足迹</h3>
           <p>个人或组织的衣食住行等活动间接产生的温室气体排放总量，可以通过日常选择一点点缩小。</p>
+          <span class="card-more">查看详情 · 听读<svg class="icon"><use href="#i-arrow"/></svg></span>
         </article>
-        <article class="concept-card">
+        <article class="concept-card" data-concept="efficiency" tabindex="0" role="button" aria-haspopup="dialog">
           <div class="ic"><svg class="icon"><use href="#i-gauge"/></svg></div>
           <h3>能源效率 / 能效标识</h3>
           <p>同样完成一件事，消耗的能源越少，能源效率就越高。家电上的"能效标识"（1-3级）能帮你一眼看出耗电水平。</p>
+          <span class="card-more">查看详情 · 听读<svg class="icon"><use href="#i-arrow"/></svg></span>
         </article>
-        <article class="concept-card">
+        <article class="concept-card" data-concept="circular" tabindex="0" role="button" aria-haspopup="dialog">
           <div class="ic"><svg class="icon"><use href="#i-recycle"/></svg></div>
           <h3>循环经济</h3>
           <p>让废弃物重新变成可用资源、尽量减少"开采—使用—丢弃"这种单向消耗模式，是应对资源紧张的重要思路。</p>
@@ -667,13 +735,13 @@ footer .icon{width:16px;height:16px;vertical-align:-3px;margin-right:6px;color:v
             <path d="M240 40Q240 74 140 74Q40 74 30 40" fill="none" stroke="var(--ink-faint)" stroke-width="1.5" stroke-dasharray="3 3"/>
             <path d="M25 47l5-9 6 8" fill="none" stroke="var(--ink-faint)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          <a class="ref-link" href="https://www.gov.cn/zhengce/zhengceku/2020-12/05/content_5567136.htm" target="_blank" rel="noopener">住建部等《推进垃圾分类工作意见》<svg class="icon"><use href="#i-arrow"/></svg></a>
+          <span class="card-more">查看详情 · 听读<svg class="icon"><use href="#i-arrow"/></svg></span>
         </article>
-        <article class="concept-card">
+        <article class="concept-card" data-concept="cooperation" tabindex="0" role="button" aria-haspopup="dialog">
           <div class="ic"><svg class="icon"><use href="#i-globe"/></svg></div>
           <h3>国际气候合作</h3>
           <p>气候变化是全球性问题，《巴黎协定》等国际协议和联合国可持续发展目标，推动各国共同减排、共享清洁能源技术。</p>
-          <a class="ref-link" href="https://www.un.org/sustainabledevelopment/energy/" target="_blank" rel="noopener">联合国 SDG7 · 经济适用的清洁能源<svg class="icon"><use href="#i-arrow"/></svg></a>
+          <span class="card-more">查看详情 · 听读<svg class="icon"><use href="#i-arrow"/></svg></span>
         </article>
       </div>
     </div>
@@ -897,6 +965,26 @@ footer .icon{width:16px;height:16px;vertical-align:-3px;margin-right:6px;color:v
 
 <div class="drag-ghost" id="dragGhost" style="display:none;"></div>
 
+<div class="detail-overlay" id="detailOverlay">
+  <div class="detail-modal" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+    <button class="detail-close" id="detailClose" aria-label="关闭"><svg class="icon"><use href="#i-cross"/></svg></button>
+    <div class="detail-head">
+      <div class="ic"><svg class="icon" id="detailIcon"><use href="#i-sun"/></svg></div>
+      <h3 id="detailTitle"></h3>
+    </div>
+    <div class="audio-bar">
+      <button class="audio-playbtn" id="audioPlayBtn" aria-label="听读"><svg class="icon"><use href="#i-play"/></svg></button>
+      <div class="audio-progress-track" id="audioProgressTrack"><div class="audio-progress-fill" id="audioProgressFill"></div></div>
+      <span class="audio-time" id="audioTime">点击听读</span>
+    </div>
+    <div class="detail-body" id="detailBody"></div>
+    <div class="detail-source">
+      <span class="label">信息来源</span>
+      <a class="ref-link" id="detailSource" target="_blank" rel="noopener" style="margin-top:0;"></a>
+    </div>
+  </div>
+</div>
+
 <script>
 (function(){
   "use strict";
@@ -931,6 +1019,410 @@ footer .icon{width:16px;height:16px;vertical-align:-3px;margin-right:6px;color:v
       tip.classList.toggle("done");
       tipCountEl.textContent = document.querySelectorAll(".tip.done").length;
     });
+  });
+
+  var CONCEPTS = {
+    renewable: {
+      title:"可再生能源",
+      icon:"i-sun",
+      audio:"audio/renewable.mp3",
+      timestamps:null,
+      source:{label:"国家能源局 · 新能源与可再生能源",url:"http://www.nea.gov.cn/sjzz/xny/"},
+      paragraphs:[
+        `太阳能、风能、水能、地热能、生物质能等被称为可再生能源，因为它们来自可以在短时间内自然恢复的资源，理论上取之不尽、用之不竭。与化石能源不同，可再生能源在使用过程中通常不会额外排放大量二氧化碳，是应对气候变化、保障能源安全的关键路径。`,
+        `太阳能通过光伏板将光能转化为电能，或通过集热装置将光能转化为热能；风能依靠风力驱动风机叶片旋转发电；水能利用水流落差推动水轮机发电，是目前技术最成熟、装机规模最大的可再生能源之一；地热能利用地下热能供暖或发电；生物质能通过燃烧或发酵农林废弃物、有机垃圾获取能量，兼具废物利用的效果。`,
+        `近年来，中国可再生能源发展迅速，风电和光伏发电装机容量已连续多年位居世界前列，成本也在持续下降，部分地区已实现“平价上网”，不再需要额外补贴。不过可再生能源也存在间歇性、波动性等挑战，风光发电受天气影响较大，需要配套储能技术和智能电网来保障稳定供应。未来，可再生能源在全球能源结构中的占比将持续提升，是实现碳达峰碳中和目标的核心支撑。`,
+      ]
+    },
+    fossil: {
+      title:"不可再生能源",
+      icon:"i-flame",
+      audio:"audio/fossil.mp3",
+      timestamps:null,
+      source:{label:"国家能源局《加快建设新型能源体系》",url:"https://www.nea.gov.cn/20251222/66a44a06b779474684d365aa79e50380/c.html"},
+      paragraphs:[
+        `煤炭、石油、天然气统称为化石能源，它们由数百万年前的动植物遗骸经过漫长的地质作用逐渐形成，储量有限、形成周期极其漫长，从人类历史的尺度看用一点就少一点，因此被称为不可再生能源。`,
+        `化石能源是工业革命以来支撑人类社会发展的主要动力来源：煤炭曾长期是发电和工业生产的主力燃料；石油被广泛用于交通运输和化工原料；天然气因燃烧相对清洁，常被视为从高碳能源向低碳能源转型的“过渡能源”。然而，化石能源的开采和燃烧会带来一系列环境问题：燃烧释放大量二氧化碳等温室气体，加剧全球变暖；开采过程可能破坏地表植被和地下水系统；燃烧产生的颗粒物、硫氧化物和氮氧化物，也是雾霾和酸雨的重要成因。`,
+        `由于化石能源不可再生，其资源分布也高度不均，长期依赖化石能源还会带来能源安全风险，这正是各国大力发展可再生能源、推进能源结构转型的重要原因。中国也提出要加快构建以新能源为主体的新型电力系统，逐步降低化石能源占比，将其从主体能源转变为保障性、调节性能源，为实现碳达峰碳中和目标创造条件。`,
+      ]
+    },
+    greenhouse: {
+      title:"碳排放与温室效应",
+      icon:"i-thermo",
+      audio:"audio/greenhouse.mp3",
+      timestamps:null,
+      source:{label:"IPCC《全球升温1.5°C特别报告》",url:"https://www.ipcc.ch/sr15/"},
+      paragraphs:[
+        `温室效应是地球大气层的一种自然现象：太阳短波辐射穿过大气层到达地表，地表吸收后再以长波辐射的形式向外散热，而大气中的二氧化碳、甲烷、氧化亚氮等温室气体会吸收并重新辐射这部分热量，使地表附近的温度比没有大气层时更高——这层温室气体就像给地球盖了一层“棉被”。适度的温室效应对生命至关重要，如果没有它，地球平均气温会低至零下十几摄氏度。`,
+        `然而，工业革命以来，人类大量燃烧煤炭、石油、天然气等化石能源，加上森林砍伐、水泥生产等活动，向大气中排放了远超自然循环能够消纳的温室气体，导致大气中二氧化碳浓度持续攀升，温室效应被显著增强，全球平均气温随之上升，这就是通常所说的全球变暖或气候变化。`,
+        `碳排放带来的影响是全球性、长期性的：冰川和极地冰盖加速消融、海平面上升、极端天气事件如高温热浪、强降雨、干旱愈发频繁。IPCC（联合国政府间气候变化专门委员会）多份报告指出，若不采取有力减排行动，本世纪末全球升温可能远超《巴黎协定》设定的1.5摄氏度或2摄氏度控制目标，因此控制碳排放、减缓温室效应，是当前全球气候治理最核心的议题。`,
+      ]
+    },
+    carbon_peak: {
+      title:"碳达峰 / 碳中和",
+      icon:"i-peak",
+      audio:"audio/carbon_peak.mp3",
+      timestamps:null,
+      source:{label:"国务院《2030年前碳达峰行动方案》",url:"https://www.gov.cn/zhengce/content/2021-10/26/content_5644984.htm"},
+      paragraphs:[
+        `“碳达峰”和“碳中和”是近年来气候治理领域最重要的两个概念，合称“双碳”目标。碳达峰，是指一个国家或地区的二氧化碳排放量在某一时间点达到历史最高值，之后开始进入持续下降的阶段，也就是排放增长的“拐点”。碳中和，则是指通过节能减排、植树造林、碳捕集利用与封存等方式，抵消掉一定时期内产生的二氧化碳排放，实现二氧化碳“净零排放”——排多少，就想办法吸收或抵消多少。`,
+        `中国于2020年提出力争在2030年前实现碳达峰、2060年前实现碳中和的目标，这是着眼于推动经济社会高质量发展、积极应对全球气候变化作出的重大战略决策，涉及能源、工业、交通、建筑等几乎所有经济部门的深度转型。实现“双碳”目标，意味着要大幅降低煤炭、石油等化石能源的消费占比，大力发展风电、光伏等可再生能源，提升能源利用效率，推广电动汽车、绿色建筑，同时增加森林碳汇、发展碳捕集技术。`,
+        `对普通人而言，“双碳”目标并不遥远：选择公共交通、随手关灯节电、减少食物浪费、支持垃圾分类，都是在为降低整体碳排放、助力碳达峰碳中和目标出一份力。`,
+      ]
+    },
+    energy_saving: {
+      title:"节能减排",
+      icon:"i-bulb",
+      audio:"audio/energy_saving.mp3",
+      timestamps:null,
+      source:{label:"国家节能宣传周官方通知",url:"https://www.ndrc.gov.cn/xxgk/zcfb/tz/202605/t20260520_1405333.html"},
+      paragraphs:[
+        `“节能减排”是“节约能源”和“减少污染物排放”的合称，是中国长期坚持的一项基本国策，也是实现绿色低碳发展的重要手段。节能，是指通过技术改造、管理优化、行为习惯改变等方式，在满足同等生产生活需求的前提下尽可能减少能源消耗；减排，则是指减少二氧化碳等温室气体以及烟尘、二氧化硫等污染物的排放。`,
+        `节能减排可以从多个层面推进：在工业领域，企业可以通过淘汰落后产能、采用高效节能设备、优化生产工艺来降低单位产值能耗；在建筑领域，可以通过提升建筑保温性能、使用节能门窗、安装智能温控系统来减少空调采暖能耗；在交通领域，推广新能源汽车、发展公共交通、优化物流路线都能有效降低油耗和排放；在日常生活中，随手关灯关电器、合理设置空调温度、选购高能效家电，同样是节能减排的具体行动。`,
+        `国家每年6月都会开展“全国节能宣传周”和“全国低碳日”等主题活动，通过政策引导、宣传教育提升全社会节能减排意识。节能减排不仅有助于缓解资源环境压力、降低温室气体排放，也能直接降低企业和家庭的能源支出，是兼顾环保效益与经济效益的双赢之举。`,
+      ]
+    },
+    footprint: {
+      title:"碳足迹",
+      icon:"i-footprint",
+      audio:"audio/footprint.mp3",
+      timestamps:null,
+      source:{label:"生态环境部《我国碳普惠进展如何？》",url:"https://www.mee.gov.cn/hdjl/cjwt/202509/t20250915_1130180.shtml"},
+      paragraphs:[
+        `碳足迹是指一个人、一个组织、一件产品或一项活动在其生命周期内，直接或间接产生的温室气体排放总量，通常折算为二氧化碳当量来衡量。碳足迹的概念最早从“生态足迹”演化而来，如今已成为衡量个人生活方式和企业生产经营对气候影响的重要指标。`,
+        `个人碳足迹主要来自衣、食、住、用、行五个方面：日常出行方式（自驾还是公交地铁）、饮食结构（红肉摄入量往往对应更高排放）、居住能耗（用电、供暖制冷）、购物消费习惯（是否倾向一次性用品、快时尚）等，都会对个人碳足迹产生影响。企业和产品的碳足迹则涵盖原材料开采、生产制造、包装运输、使用、废弃回收等全生命周期各环节的排放。`,
+        `计算和了解碳足迹，是采取有针对性减排行动的第一步。近年来，中国多地陆续推出“碳普惠”平台，通过记录、量化居民低碳出行、垃圾分类、节水节电等行为产生的减排量，给予相应积分或权益奖励，鼓励公众践行低碳生活方式。缩小个人碳足迹并不需要彻底改变生活，从减少一次性用品使用、选择低碳出行方式、节约用水用电等小事做起，长期坚持同样能带来可观的减排效果。`,
+      ]
+    },
+    efficiency: {
+      title:"能源效率 / 能效标识",
+      icon:"i-gauge",
+      audio:"audio/efficiency.mp3",
+      timestamps:null,
+      source:{label:"发改委·市场监管总局能效标识目录公告",url:"https://www.ndrc.gov.cn/xxgk/jd/jd/202312/t20231215_1362628.html"},
+      paragraphs:[
+        `能源效率，简单来说，就是完成同样一件事所消耗的能源多少：消耗的能源越少、产出或服务效果不变甚至更好，能源效率就越高。提升能源效率，被公认为是成本最低、见效最快的减排方式之一，因为它不需要新建能源设施，只需要更聪明地使用现有能源。`,
+        `为了帮助消费者直观识别产品的耗能水平，中国自2005年起建立了“能源效率标识”制度，由国家发展改革委、市场监管总局共同管理。这是一张贴在冰箱、空调、洗衣机、电视等家电产品上的标签，通常以数字1到5级来表示产品能效高低，等级数字越小，代表能效越高、越省电；标识上还会标注产品具体耗电量等参考数据，方便消费者购买时进行比较。`,
+        `选购家电时留意能效标识，优先选择一级或二级能效产品，虽然购买价格可能略高，但由于长期使用中的电费更低，往往能够在使用几年后收回差价，是“省钱又环保”的选择。除家电产品外，能效标识制度已扩展到汽车、照明产品、工业设备等更多领域，成为推动全社会节能减排的重要政策工具。`,
+      ]
+    },
+    circular: {
+      title:"循环经济",
+      icon:"i-recycle",
+      audio:"audio/circular.mp3",
+      timestamps:null,
+      source:{label:"发改委《“十四五”循环经济发展规划》",url:"https://www.gov.cn/zhengce/zhengceku/2021-07/07/content_5623077.htm"},
+      paragraphs:[
+        `循环经济是相对于传统“开采—生产—消费—废弃”线性经济模式提出的一种新型经济发展模式，核心理念是尽可能延长资源和产品的使用寿命，让废弃物重新变成可利用的资源，从而减少对原生资源的依赖和对环境的破坏，实现经济发展与资源环境的协调统一。`,
+        `循环经济通常遵循“减量化、再利用、资源化”三大原则：减量化，是指在生产和消费过程中尽量减少资源投入和废弃物产生，比如简化产品包装、延长产品使用寿命；再利用，是指物品在报废前尽可能被反复使用或维修后继续使用，比如旧衣物、旧书籍的捐赠和二手交易；资源化，是指废弃物经过回收处理后转化为新的原材料或能源，比如废纸回收再造纸、厨余垃圾转化为堆肥或沼气。`,
+        `垃圾分类正是循环经济理念在日常生活中的具体体现——只有经过准确分类，可回收物才能被真正送往专业渠道进行资源化利用。中国已将发展循环经济上升为国家战略，国家发展改革委发布的“十四五”循环经济发展规划提出，到2025年资源循环利用产值要达到5万亿元。践行循环经济，个人在日常生活中减少浪费、参与回收，同样是重要的参与方式。`,
+      ]
+    },
+    cooperation: {
+      title:"国际气候合作",
+      icon:"i-globe",
+      audio:"audio/cooperation.mp3",
+      timestamps:null,
+      source:{label:"联合国 SDG7 · 经济适用的清洁能源",url:"https://www.un.org/sustainabledevelopment/energy/"},
+      paragraphs:[
+        `气候变化是全球性、系统性的挑战，任何一个国家都无法独自解决，因此国际社会长期以来一直在推动多边气候治理合作。1992年，各国签署《联合国气候变化框架公约》，确立了应对气候变化国际合作的基本框架；2015年，近200个国家在巴黎气候大会上通过《巴黎协定》，设定了将全球平均气温升幅控制在工业化前水平以上2摄氏度以内、并努力控制在1.5摄氏度以内的长期目标，各国需要提交并定期更新自己的国家自主贡献，说明本国的减排目标和行动计划。`,
+        `联合国还提出了17项可持续发展目标，其中第7项“经济适用的清洁能源”明确提出，到2030年要确保人人获得负担得起、可靠和可持续的现代能源服务，大幅提高能源效率，扩大可再生能源在全球能源结构中的比例。这些国际协议和目标为各国制定能源和气候政策提供了重要参考和约束框架。`,
+        `中国作为全球最大的发展中国家之一，积极参与国际气候治理，提出碳达峰碳中和目标，并在可再生能源装机、新能源汽车产销量等领域走在世界前列，也通过南南合作等方式向其他发展中国家提供气候援助与技术支持，成为全球气候治理的重要参与者和贡献者。`,
+      ]
+    },
+  };
+  /* ================= CONCEPT DETAIL ================= */
+  var conceptGrid = document.getElementById("conceptGrid");
+  var detailOverlay = document.getElementById("detailOverlay");
+  var detailClose = document.getElementById("detailClose");
+  var detailIcon = document.getElementById("detailIcon");
+  var detailTitle = document.getElementById("detailTitle");
+  var detailBody = document.getElementById("detailBody");
+  var detailSource = document.getElementById("detailSource");
+  var audioPlayBtn = document.getElementById("audioPlayBtn");
+  var audioProgressTrack = document.getElementById("audioProgressTrack");
+  var audioProgressFill = document.getElementById("audioProgressFill");
+  var audioTime = document.getElementById("audioTime");
+
+  var sentenceEls = [];
+  var sentenceRanges = [];
+  var currentAudioEl = null;
+  var useSpeechFallback = false;
+  var speechIndex = -1;
+  var isPlaying = false;
+  var hasEngaged = false;
+  var currentConceptId = null;
+
+  function formatTime(sec){
+    if(!isFinite(sec) || sec < 0) sec = 0;
+    var m = Math.floor(sec/60), s = Math.floor(sec%60);
+    return m + ":" + (s<10?"0":"") + s;
+  }
+
+  function splitSentences(text){
+    var m = text.match(/[^。！？]+[。！？]?/g);
+    return m ? m.map(function(s){return s.trim();}).filter(Boolean) : [text];
+  }
+
+  function renderDetailBody(concept){
+    detailBody.innerHTML = "";
+    sentenceEls = [];
+    var globalIndex = 0;
+    concept.paragraphs.forEach(function(paraText){
+      var p = document.createElement("p");
+      splitSentences(paraText).forEach(function(sText){
+        var span = document.createElement("span");
+        span.className = "sentence";
+        span.dataset.i = globalIndex;
+        span.textContent = sText;
+        p.appendChild(span);
+        sentenceEls.push(span);
+        globalIndex++;
+      });
+      detailBody.appendChild(p);
+    });
+  }
+
+  function computeProportionalRanges(totalDuration){
+    var lens = sentenceEls.map(function(el){ return el.textContent.length; });
+    var totalLen = lens.reduce(function(a,b){return a+b;},0) || 1;
+    var ranges = [];
+    var acc = 0;
+    lens.forEach(function(len){
+      var start = acc/totalLen*totalDuration;
+      acc += len;
+      var end = acc/totalLen*totalDuration;
+      ranges.push({start:start, end:end});
+    });
+    return ranges;
+  }
+
+  function highlightSentence(idx){
+    sentenceEls.forEach(function(el,i){ el.classList.toggle("active", i===idx); });
+    if(idx>=0 && sentenceEls[idx]){
+      sentenceEls[idx].scrollIntoView({block:"nearest", behavior:"smooth"});
+    }
+  }
+
+  function resetAudioUI(){
+    audioPlayBtn.innerHTML = '<svg class="icon"><use href="#i-play"/></svg>';
+    audioProgressFill.style.width = "0%";
+    audioTime.textContent = "点击听读";
+    highlightSentence(-1);
+    isPlaying = false;
+  }
+
+  function stopPlayback(){
+    if(currentAudioEl){
+      currentAudioEl.pause();
+      currentAudioEl.currentTime = 0;
+      currentAudioEl = null;
+    }
+    if(window.speechSynthesis){
+      window.speechSynthesis.cancel();
+    }
+    speechIndex = -1;
+  }
+
+  function bindAudioEvents(a){
+    a.addEventListener("timeupdate", function(){
+      var t = a.currentTime, d = a.duration || 1;
+      audioProgressFill.style.width = (t/d*100)+"%";
+      audioTime.textContent = formatTime(t)+" / "+formatTime(d);
+      var idx = sentenceRanges.findIndex(function(r){return t>=r.start && t<r.end;});
+      if(idx===-1 && t>0){ idx = sentenceRanges.length-1; }
+      highlightSentence(idx);
+    });
+    a.addEventListener("ended", resetAudioUI);
+  }
+
+  function startWithAudio(concept){
+    var a = new Audio(concept.audio);
+    var settled = false;
+    function fallback(){
+      if(settled) return; settled = true;
+      currentAudioEl = null;
+      startWithSpeech(concept);
+    }
+    a.addEventListener("error", fallback);
+    a.addEventListener("loadedmetadata", function(){
+      if(settled) return;
+      sentenceRanges = concept.timestamps || computeProportionalRanges(a.duration);
+    });
+    bindAudioEvents(a);
+    currentAudioEl = a;
+    useSpeechFallback = false;
+    isPlaying = true;
+    audioPlayBtn.innerHTML = '<svg class="icon"><use href="#i-pause"/></svg>';
+    // play() must be called synchronously within the click handler so the
+    // browser still credits it as a user gesture once metadata resolves.
+    var playPromise = a.play();
+    if(playPromise && playPromise.catch){ playPromise.catch(fallback); }
+    setTimeout(function(){
+      if(!settled && a.readyState===0){ fallback(); }
+    }, 2500);
+  }
+
+  function seekAudio(idx){
+    if(!currentAudioEl) return;
+    var r = sentenceRanges[idx];
+    if(!r) return;
+    currentAudioEl.currentTime = r.start;
+    currentAudioEl.play();
+    isPlaying = true;
+    audioPlayBtn.innerHTML = '<svg class="icon"><use href="#i-pause"/></svg>';
+  }
+
+  function startWithSpeech(concept){
+    if(!window.speechSynthesis){
+      audioTime.textContent = "当前浏览器不支持语音朗读";
+      return;
+    }
+    useSpeechFallback = true;
+    window.speechSynthesis.cancel();
+    var texts = sentenceEls.map(function(el){return el.textContent;});
+    var totalLen = texts.reduce(function(a,s){return a+s.length;},0) || 1;
+    var estimatedTotal = Math.max(totalLen/4.5, 8);
+    var acc = 0;
+    sentenceRanges = texts.map(function(t){
+      var start = acc/totalLen*estimatedTotal;
+      acc += t.length;
+      var end = acc/totalLen*estimatedTotal;
+      return {start:start,end:end};
+    });
+    speakFrom(0);
+  }
+
+  function pickVoice(){
+    var voices = window.speechSynthesis.getVoices();
+    return voices.find(function(v){ return /zh/i.test(v.lang) && /female|女|Ting|Mei|Yaoyao|Xiaoxiao/i.test(v.name); })
+      || voices.find(function(v){ return /zh/i.test(v.lang); })
+      || null;
+  }
+
+  function speakFrom(idx){
+    if(idx>=sentenceEls.length){ resetAudioUI(); return; }
+    speechIndex = idx;
+    var utter = new SpeechSynthesisUtterance(sentenceEls[idx].textContent);
+    utter.lang = "zh-CN";
+    utter.voice = pickVoice();
+    utter.rate = 1;
+    utter.onstart = function(){
+      isPlaying = true;
+      audioPlayBtn.innerHTML = '<svg class="icon"><use href="#i-pause"/></svg>';
+      highlightSentence(idx);
+      var r = sentenceRanges[idx];
+      var totalDur = sentenceRanges[sentenceRanges.length-1].end;
+      audioTime.textContent = formatTime(r.start)+" / "+formatTime(totalDur);
+      audioProgressFill.style.width = (r.start/totalDur*100)+"%";
+    };
+    utter.onend = function(){
+      if(speechIndex===idx){ speakFrom(idx+1); }
+    };
+    window.speechSynthesis.speak(utter);
+  }
+
+  function seekSpeech(idx){
+    window.speechSynthesis.cancel();
+    speakFrom(idx);
+  }
+
+  function jumpToSentence(idx){
+    if(!hasEngaged || !currentConceptId) return;
+    if(useSpeechFallback){ seekSpeech(idx); }
+    else if(currentAudioEl){ seekAudio(idx); }
+  }
+
+  audioPlayBtn.addEventListener("click", function(){
+    if(!currentConceptId) return;
+    var concept = CONCEPTS[currentConceptId];
+    hasEngaged = true;
+    if(isPlaying){
+      if(useSpeechFallback){ window.speechSynthesis.pause(); }
+      else if(currentAudioEl){ currentAudioEl.pause(); }
+      isPlaying = false;
+      audioPlayBtn.innerHTML = '<svg class="icon"><use href="#i-play"/></svg>';
+      return;
+    }
+    if(useSpeechFallback && speechIndex>=0 && window.speechSynthesis.paused){
+      window.speechSynthesis.resume();
+      isPlaying = true;
+      audioPlayBtn.innerHTML = '<svg class="icon"><use href="#i-pause"/></svg>';
+      return;
+    }
+    if(!useSpeechFallback && currentAudioEl){
+      currentAudioEl.play();
+      isPlaying = true;
+      audioPlayBtn.innerHTML = '<svg class="icon"><use href="#i-pause"/></svg>';
+      return;
+    }
+    audioTime.textContent = "加载中…";
+    startWithAudio(concept);
+  });
+
+  audioProgressTrack.addEventListener("click", function(e){
+    if(!hasEngaged || !sentenceRanges.length) return;
+    var rect = audioProgressTrack.getBoundingClientRect();
+    var ratio = Math.min(Math.max((e.clientX-rect.left)/rect.width,0),1);
+    var totalDur = sentenceRanges[sentenceRanges.length-1].end;
+    var t = ratio*totalDur;
+    var idx = sentenceRanges.findIndex(function(r){return t>=r.start && t<r.end;});
+    if(idx===-1) idx = sentenceRanges.length-1;
+    jumpToSentence(idx);
+  });
+
+  detailBody.addEventListener("click", function(e){
+    var span = e.target.closest(".sentence");
+    if(!span) return;
+    jumpToSentence(parseInt(span.dataset.i,10));
+  });
+
+  function openDetail(id){
+    var concept = CONCEPTS[id];
+    if(!concept) return;
+    stopPlayback();
+    currentConceptId = id;
+    useSpeechFallback = false;
+    hasEngaged = false;
+    sentenceRanges = [];
+    detailIcon.innerHTML = '<use href="#'+concept.icon+'"/>';
+    detailTitle.textContent = concept.title;
+    renderDetailBody(concept);
+    detailSource.textContent = concept.source.label;
+    detailSource.href = concept.source.url;
+    detailSource.insertAdjacentHTML("beforeend", ' <svg class="icon"><use href="#i-arrow"/></svg>');
+    resetAudioUI();
+    detailOverlay.classList.add("show");
+    document.body.style.overflow = "hidden";
+    detailClose.focus();
+  }
+
+  function closeDetail(){
+    stopPlayback();
+    resetAudioUI();
+    detailOverlay.classList.remove("show");
+    document.body.style.overflow = "";
+    currentConceptId = null;
+  }
+
+  conceptGrid.addEventListener("click", function(e){
+    var card = e.target.closest(".concept-card");
+    if(!card) return;
+    openDetail(card.dataset.concept);
+  });
+  conceptGrid.addEventListener("keydown", function(e){
+    if(e.key!=="Enter" && e.key!==" ") return;
+    var card = e.target.closest(".concept-card");
+    if(!card) return;
+    e.preventDefault();
+    openDetail(card.dataset.concept);
+  });
+  detailClose.addEventListener("click", closeDetail);
+  detailOverlay.addEventListener("click", function(e){
+    if(e.target===detailOverlay) closeDetail();
+  });
+  document.addEventListener("keydown", function(e){
+    if(e.key==="Escape" && detailOverlay.classList.contains("show")) closeDetail();
   });
 
   /* ================= GAME ================= */
