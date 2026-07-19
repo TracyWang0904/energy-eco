@@ -1026,7 +1026,18 @@ footer .icon{width:16px;height:16px;vertical-align:-3px;margin-right:6px;color:v
       title:"可再生能源",
       icon:"i-sun",
       audio:"audio/renewable.mp3",
-      timestamps:null,
+      timestamps:[
+        {start:0,end:14.24},
+        {start:14.24,end:25.76},
+        {start:25.76,end:32.8},
+        {start:32.8,end:36.37},
+        {start:36.37,end:44.77},
+        {start:44.77,end:47.92},
+        {start:47.92,end:56.53},
+        {start:56.53,end:73.52},
+        {start:73.52,end:85.87},
+        {start:85.87,end:95.48}
+      ],
       source:{label:"国家能源局 · 新能源与可再生能源",url:"http://www.nea.gov.cn/sjzz/xny/"},
       paragraphs:[
         `太阳能、风能、水能、地热能、生物质能等被称为可再生能源，因为它们来自可以在短时间内自然恢复的资源，理论上取之不尽、用之不竭。与化石能源不同，可再生能源在使用过程中通常不会额外排放大量二氧化碳，是应对气候变化、保障能源安全的关键路径。`,
@@ -1160,7 +1171,7 @@ footer .icon{width:16px;height:16px;vertical-align:-3px;margin-right:6px;color:v
   }
 
   function splitSentences(text){
-    var m = text.match(/[^。！？]+[。！？]?/g);
+    var m = text.match(/[^。！？；]+[。！？；]?/g);
     return m ? m.map(function(s){return s.trim();}).filter(Boolean) : [text];
   }
 
