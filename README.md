@@ -33,7 +33,7 @@ audio/greenhouse.mp3      碳排放与温室效应  ✅ 已接入真实朗读
 audio/carbon_peak.mp3     碳达峰 / 碳中和  ✅ 已接入真实朗读
 audio/energy_saving.mp3   节能减排  ✅ 已接入真实朗读
 audio/footprint.mp3       碳足迹  ✅ 已接入真实朗读
-audio/efficiency.mp3      能源效率 / 能效标识
+audio/efficiency.mp3      能源效率 / 能效标识  ✅ 已接入真实朗读
 audio/circular.mp3        循环经济
 audio/cooperation.mp3     国际气候合作
 ```
