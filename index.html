@@ -1170,7 +1170,15 @@ footer .icon{width:16px;height:16px;vertical-align:-3px;margin-right:6px;color:v
       title:"循环经济",
       icon:"i-recycle",
       audio:"audio/circular.mp3",
-      timestamps:null,
+      timestamps:[
+        {start:0,end:26.4},
+        {start:26.4,end:46.44},
+        {start:46.44,end:57.17},
+        {start:57.17,end:68.83},
+        {start:69.33,end:82.06},
+        {start:82.06,end:95.22},
+        {start:95.22,end:102.7}
+      ],
       source:{label:"发改委《“十四五”循环经济发展规划》",url:"https://www.gov.cn/zhengce/zhengceku/2021-07/07/content_5623077.htm"},
       paragraphs:[
         `循环经济是相对于传统“开采—生产—消费—废弃”线性经济模式提出的一种新型经济发展模式，核心理念是尽可能延长资源和产品的使用寿命，让废弃物重新变成可利用的资源，从而减少对原生资源的依赖和对环境的破坏，实现经济发展与资源环境的协调统一。`,
@@ -1264,6 +1272,18 @@ footer .icon{width:16px;height:16px;vertical-align:-3px;margin-right:6px;color:v
     }
   }
 
+  function findSentenceIndex(t){
+    var idx = sentenceRanges.findIndex(function(r){return t>=r.start && t<r.end;});
+    if(idx===-1){
+      // between two ranges (e.g. an inserted pause) or past the end:
+      // keep highlighting whichever sentence most recently started.
+      for(var k=sentenceRanges.length-1;k>=0;k--){
+        if(sentenceRanges[k].start<=t){ idx=k; break; }
+      }
+    }
+    return idx;
+  }
+
   function resetAudioUI(){
     audioPlayBtn.innerHTML = '<svg class="icon"><use href="#i-play"/></svg>';
     audioProgressFill.style.width = "0%";
@@ -1289,9 +1309,7 @@ footer .icon{width:16px;height:16px;vertical-align:-3px;margin-right:6px;color:v
       var t = a.currentTime, d = a.duration || 1;
       audioProgressFill.style.width = (t/d*100)+"%";
       audioTime.textContent = formatTime(t)+" / "+formatTime(d);
-      var idx = sentenceRanges.findIndex(function(r){return t>=r.start && t<r.end;});
-      if(idx===-1 && t>0){ idx = sentenceRanges.length-1; }
-      highlightSentence(idx);
+      highlightSentence(t>0 ? findSentenceIndex(t) : -1);
     });
     a.addEventListener("ended", resetAudioUI);
   }
@@ -1426,9 +1444,7 @@ footer .icon{width:16px;height:16px;vertical-align:-3px;margin-right:6px;color:v
     var ratio = Math.min(Math.max((e.clientX-rect.left)/rect.width,0),1);
     var totalDur = sentenceRanges[sentenceRanges.length-1].end;
     var t = ratio*totalDur;
-    var idx = sentenceRanges.findIndex(function(r){return t>=r.start && t<r.end;});
-    if(idx===-1) idx = sentenceRanges.length-1;
-    jumpToSentence(idx);
+    jumpToSentence(findSentenceIndex(t));
   });
 
   detailBody.addEventListener("click", function(e){
