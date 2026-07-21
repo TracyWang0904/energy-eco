@@ -31,7 +31,7 @@ audio/renewable.mp3       可再生能源  ✅ 已接入真实朗读
 audio/fossil.mp3          不可再生能源  ✅ 已接入真实朗读
 audio/greenhouse.mp3      碳排放与温室效应  ✅ 已接入真实朗读
 audio/carbon_peak.mp3     碳达峰 / 碳中和  ✅ 已接入真实朗读
-audio/energy_saving.mp3   节能减排
+audio/energy_saving.mp3   节能减排  ✅ 已接入真实朗读
 audio/footprint.mp3       碳足迹
 audio/efficiency.mp3      能源效率 / 能效标识
 audio/circular.mp3        循环经济
