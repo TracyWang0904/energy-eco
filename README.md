@@ -20,25 +20,23 @@
 - 无构建工具、无外部依赖，可直接部署到任意静态托管平台
 - 支持浅色 / 深色两套配色，跟随系统或站点主题自动切换
 
-## 听读音频（可选，用于替换默认的浏览器朗读）
+## 听读音频
 
-概念详情弹窗默认会尝试加载 `audio/` 目录下对应的音频文件；如果文件不存在，会自动改用浏览器内置的语音合成（Web Speech API）朗读，不影响功能完整性。
-
-如果要换成 CosyVoice 生成的自定义音色，只需在 `index.html` 同级目录新建 `audio/` 文件夹，按以下文件名放入对应的 mp3（文件名需完全一致，9 个概念对应 9 个文件）：
+9 个概念全部已接入 CosyVoice 生成的真实朗读（`audio/*.mp3`）。如果文件缺失或加载失败，会自动改用浏览器内置的语音合成（Web Speech API）朗读作为兜底，不影响功能完整性。
 
 ```
-audio/renewable.mp3       可再生能源  ✅ 已接入真实朗读
-audio/fossil.mp3          不可再生能源  ✅ 已接入真实朗读
-audio/greenhouse.mp3      碳排放与温室效应  ✅ 已接入真实朗读
-audio/carbon_peak.mp3     碳达峰 / 碳中和  ✅ 已接入真实朗读
-audio/energy_saving.mp3   节能减排  ✅ 已接入真实朗读
-audio/footprint.mp3       碳足迹  ✅ 已接入真实朗读
-audio/efficiency.mp3      能源效率 / 能效标识  ✅ 已接入真实朗读
-audio/circular.mp3        循环经济  ✅ 已接入真实朗读
+audio/renewable.mp3       可再生能源
+audio/fossil.mp3          不可再生能源
+audio/greenhouse.mp3      碳排放与温室效应
+audio/carbon_peak.mp3     碳达峰 / 碳中和
+audio/energy_saving.mp3   节能减排
+audio/footprint.mp3       碳足迹
+audio/efficiency.mp3      能源效率 / 能效标识
+audio/circular.mp3        循环经济
 audio/cooperation.mp3     国际气候合作
 ```
 
-放入文件后无需改代码，页面会自动优先使用真实音频。句子高亮默认按每句文字长度占全文的比例，从音频总时长里估算每句的起止时间；如果 CosyVoice 或其他工具能额外产出更精确的逐句时间戳，可以在 `index.html` 的 `CONCEPTS` 数据里把对应概念的 `timestamps` 字段从 `null` 换成 `[{start:0,end:3.2}, ...]` 这样的秒数数组（数组顺序需与正文句子顺序一致——注意句子拆分规则是按 `。！？；` 断句），高亮同步会更精确。`renewable`（可再生能源）已经按这个方法接入了基于真实分段时长换算出的时间戳，可以直接参考它的写法。
+**替换某个音频**：直接用同名文件覆盖 `audio/` 下对应的 mp3 即可，无需改代码。句子高亮默认按每句文字长度占全文（或所在分段）的比例估算起止时间；如果新音频的分段方式变了，需要同步更新 `index.html` 的 `CONCEPTS` 数据里对应概念的 `timestamps` 字段（`[{start:0,end:3.2}, ...]`，单位秒，顺序需与正文句子一致——句子拆分规则是按 `。！？；` 断句）。9 个概念的 `timestamps` 都是按“真实分段时长 + 段内按字数插值”的方法算出来的，可以直接参考现成的写法；`circular`（循环经济）那段还演示了如何在两个分段之间手动插入静音间隔。
 
 ## 本地预览
 
