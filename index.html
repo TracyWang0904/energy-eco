@@ -352,6 +352,74 @@ a{color:inherit;}
 .bar-track{height:10px;border-radius:var(--radius-pill);background:var(--surface-soft);overflow:hidden;margin-bottom:22px;}
 .bar-fill{height:100%;border-radius:var(--radius-pill);background:linear-gradient(90deg,var(--teal),var(--sky));}
 
+/* ---------- calculator ---------- */
+.calc-shell{
+  display:grid;grid-template-columns:1.1fr 1fr;gap:28px;
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);
+  padding:clamp(20px,3vw,32px);box-shadow:var(--shadow-sm);
+}
+@media (max-width:860px){.calc-shell{grid-template-columns:1fr;}}
+.calc-form{display:flex;flex-direction:column;gap:22px;}
+.calc-group{display:flex;flex-direction:column;gap:10px;}
+.calc-label{display:flex;align-items:center;gap:8px;font-weight:800;font-size:.92rem;color:var(--ink);}
+.calc-label .icon{width:18px;height:18px;color:var(--teal-deep);flex:none;}
+.calc-label b{color:var(--teal-deep);font-variant-numeric:tabular-nums;}
+.calc-pills{display:flex;flex-wrap:wrap;gap:8px;}
+.calc-pills button{
+  display:flex;align-items:center;gap:7px;padding:9px 15px;border-radius:var(--radius-pill);
+  border:1.5px solid var(--line);background:var(--surface);color:var(--ink-soft);font-weight:700;font-size:.85rem;
+  transition:all .15s ease;
+}
+.calc-pills button .icon{width:16px;height:16px;}
+.calc-pills button:hover{border-color:var(--teal);color:var(--teal-deep);}
+.calc-pills button.active{background:var(--teal);border-color:var(--teal);color:#fff;box-shadow:var(--shadow-sm);}
+
+.calc-slider{
+  -webkit-appearance:none;appearance:none;width:100%;height:8px;border-radius:var(--radius-pill);
+  background:linear-gradient(90deg,var(--teal),var(--sky));outline:none;cursor:pointer;display:block;
+}
+.calc-slider::-webkit-slider-thumb{
+  -webkit-appearance:none;appearance:none;width:20px;height:20px;border-radius:50%;
+  background:var(--surface);border:3px solid var(--teal-deep);box-shadow:var(--shadow-sm);cursor:pointer;
+}
+.calc-slider::-moz-range-thumb{
+  width:20px;height:20px;border-radius:50%;background:var(--surface);border:3px solid var(--teal-deep);
+  box-shadow:var(--shadow-sm);cursor:pointer;border:3px solid var(--teal-deep);
+}
+
+.calc-result{
+  background:var(--surface-alt);border-radius:var(--radius-md);padding:24px;display:flex;flex-direction:column;gap:18px;
+}
+.calc-total{text-align:center;padding:6px 0;}
+.calc-total-num{
+  font-family:var(--font-display);font-weight:800;font-size:clamp(2.3rem,1.9rem + 2vw,3.1rem);color:var(--teal-deep);
+  font-variant-numeric:tabular-nums;display:block;line-height:1;
+}
+.calc-total-unit{font-size:.8rem;color:var(--ink-faint);font-weight:700;}
+
+.calc-bar{display:flex;height:14px;border-radius:var(--radius-pill);overflow:hidden;background:var(--surface-soft);}
+.calc-bar-seg{height:100%;transition:width .3s ease;}
+#segCommute{background:var(--teal);}
+#segDiet{background:var(--sun);}
+#segHome{background:var(--sky);}
+.calc-legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:10px;font-size:.8rem;color:var(--ink-soft);font-weight:700;}
+.calc-legend .dot{width:9px;height:9px;border-radius:50%;display:inline-block;margin-right:6px;}
+.dot-commute{background:var(--teal);}
+.dot-diet{background:var(--sun);}
+.dot-home{background:var(--sky);}
+.calc-legend b{color:var(--ink);font-variant-numeric:tabular-nums;}
+
+.calc-compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+@media (max-width:500px){.calc-compare-grid{grid-template-columns:1fr;}}
+.calc-compare-card{
+  background:var(--surface);border-radius:var(--radius-md);padding:16px;text-align:center;border:1px solid var(--line);
+}
+.calc-compare-card .icon{width:26px;height:26px;color:var(--teal-deep);margin:0 auto 8px;}
+.calc-compare-card b{display:block;font-family:var(--font-display);font-size:1.5rem;color:var(--ink);font-variant-numeric:tabular-nums;}
+.calc-compare-card span{font-size:.78rem;color:var(--ink-soft);}
+
+.calc-note{font-size:.76rem;color:var(--ink-faint);text-align:center;}
+
 /* practice tabs */
 .tabbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px;}
 .tabbtn{
@@ -574,6 +642,10 @@ footer .icon{width:16px;height:16px;vertical-align:-3px;margin-right:6px;color:v
 <symbol id="i-play" viewBox="0 0 48 48"><path d="M14 8.5v31l27-15.5Z" fill="currentColor" stroke="none"/></symbol>
 <symbol id="i-pause" viewBox="0 0 48 48"><rect x="12" y="9" width="9" height="30" rx="2.5" fill="currentColor" stroke="none"/><rect x="27" y="9" width="9" height="30" rx="2.5" fill="currentColor" stroke="none"/></symbol>
 <symbol id="i-sound" viewBox="0 0 48 48"><path d="M6 18v12h8l12 9V9L14 18Z"/><path d="M33 16a11 11 0 0 1 0 16M39 10a19 19 0 0 1 0 28"/></symbol>
+<symbol id="i-tree" viewBox="0 0 48 48"><circle cx="24" cy="18" r="13"/><path d="M24 31v11" stroke-width="3.4"/></symbol>
+<symbol id="i-fridge" viewBox="0 0 48 48"><rect x="12" y="5" width="24" height="38" rx="3"/><path d="M12 18h24"/><path d="M16 9v6M16 22v6" stroke-width="2.4"/></symbol>
+<symbol id="i-ac" viewBox="0 0 48 48"><rect x="6" y="8" width="36" height="14" rx="5"/><circle fill="currentColor" stroke="none" cx="14" cy="15" r="1.6"/><path d="M24 26v18M15.5 30.5l17 9M32.5 30.5l-17 9" stroke-width="2.2"/></symbol>
+<symbol id="i-meat" viewBox="0 0 48 48"><path d="M8 20c2-8 10-13 18-11 7 2 12 8 12 14 0 9-8 17-18 15-8-2-13-10-12-18Z"/><path d="M14 18l6 12M22 15l6 14M29 14l5 12" stroke-width="1.8"/></symbol>
 </defs>
 </svg>
 
@@ -588,6 +660,7 @@ footer .icon{width:16px;height:16px;vertical-align:-3px;margin-right:6px;color:v
     <nav class="navpills" id="navpills">
       <a href="#concepts">基础概念</a>
       <a href="#why">为什么</a>
+      <a href="#calculator">算一算</a>
       <a href="#practice">怎么做</a>
       <a href="#game">小游戏</a>
       <a href="#quiz">测一测</a>
@@ -797,11 +870,92 @@ footer .icon{width:16px;height:16px;vertical-align:-3px;margin-right:6px;color:v
     </div>
   </section>
 
-  <!-- ================= PRACTICE ================= -->
-  <section class="section" id="practice">
+  <!-- ================= CALCULATOR ================= -->
+  <section class="section" id="calculator">
     <div class="page">
       <div class="section-head">
-        <span class="kicker"><svg class="icon"><use href="#i-home"/></svg>PART 3</span>
+        <span class="kicker"><svg class="icon"><use href="#i-footprint"/></svg>PART 3</span>
+        <h2>算一算：你的年度碳足迹</h2>
+        <p>选一下你的通勤、饮食和家电使用习惯，实时看看自己一年大概产生多少碳排放——这是简化估算，帮你建立直观感受，不是精确核算。</p>
+      </div>
+      <div class="calc-shell">
+        <div class="calc-form">
+          <div class="calc-group">
+            <div class="calc-label"><svg class="icon"><use href="#i-car"/></svg>通勤方式</div>
+            <div class="calc-pills" id="commutePills">
+              <button type="button" data-value="walk" class="active"><svg class="icon"><use href="#i-bike"/></svg>步行 / 骑行</button>
+              <button type="button" data-value="transit"><svg class="icon"><use href="#i-bus"/></svg>公交 / 地铁</button>
+              <button type="button" data-value="ev"><svg class="icon"><use href="#i-plug"/></svg>电动 / 新能源车</button>
+              <button type="button" data-value="fuel"><svg class="icon"><use href="#i-car"/></svg>燃油私家车</button>
+            </div>
+          </div>
+          <div class="calc-group">
+            <div class="calc-label">每周通勤里程：<b id="mileageVal">50</b> 公里</div>
+            <input type="range" class="calc-slider" id="mileageSlider" min="0" max="300" step="5" value="50">
+          </div>
+          <div class="calc-group">
+            <div class="calc-label"><svg class="icon"><use href="#i-bowl"/></svg>饮食结构</div>
+            <div class="calc-pills" id="dietPills">
+              <button type="button" data-value="veg"><svg class="icon"><use href="#i-leaf"/></svg>素食为主</button>
+              <button type="button" data-value="balanced" class="active"><svg class="icon"><use href="#i-bowl"/></svg>均衡饮食</button>
+              <button type="button" data-value="meat"><svg class="icon"><use href="#i-meat"/></svg>肉食为主</button>
+            </div>
+          </div>
+          <div class="calc-group">
+            <div class="calc-label"><svg class="icon"><use href="#i-fridge"/></svg>家里冰箱数量</div>
+            <div class="calc-pills" id="fridgePills">
+              <button type="button" data-value="0">0 台</button>
+              <button type="button" data-value="1" class="active">1 台</button>
+              <button type="button" data-value="2">2 台</button>
+              <button type="button" data-value="3">3 台及以上</button>
+            </div>
+          </div>
+          <div class="calc-group">
+            <div class="calc-label"><svg class="icon"><use href="#i-ac"/></svg>夏天空调平均每天开：<b id="acVal">4</b> 小时</div>
+            <input type="range" class="calc-slider" id="acSlider" min="0" max="12" step="1" value="4">
+          </div>
+        </div>
+
+        <div class="calc-result">
+          <div class="calc-total">
+            <span class="calc-total-num" id="calcTotal">0</span>
+            <span class="calc-total-unit">kg CO₂e / 年</span>
+          </div>
+          <div class="calc-breakdown">
+            <div class="calc-bar">
+              <span class="calc-bar-seg" id="segCommute" style="width:0%"></span>
+              <span class="calc-bar-seg" id="segDiet" style="width:0%"></span>
+              <span class="calc-bar-seg" id="segHome" style="width:0%"></span>
+            </div>
+            <div class="calc-legend">
+              <span><i class="dot dot-commute"></i>通勤 <b id="lblCommute">0</b> kg</span>
+              <span><i class="dot dot-diet"></i>饮食 <b id="lblDiet">0</b> kg</span>
+              <span><i class="dot dot-home"></i>家电 <b id="lblHome">0</b> kg</span>
+            </div>
+          </div>
+          <div class="calc-compare-grid">
+            <div class="calc-compare-card">
+              <svg class="icon"><use href="#i-tree"/></svg>
+              <b id="calcTrees">0</b>
+              <span>棵树，一年才能吸收掉这些碳</span>
+            </div>
+            <div class="calc-compare-card">
+              <svg class="icon"><use href="#i-flame"/></svg>
+              <b id="calcFuel">0</b>
+              <span>升汽油燃烧，产生同等的排放量</span>
+            </div>
+          </div>
+          <p class="calc-note">系数仅为示意估算（如1棵树年吸收≈18kg CO₂、1升汽油燃烧≈2.3kg CO₂），用于帮助建立直观感受，并非精确核算。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PRACTICE ================= -->
+  <section class="section section--alt" id="practice">
+    <div class="page">
+      <div class="section-head">
+        <span class="kicker"><svg class="icon"><use href="#i-home"/></svg>PART 4</span>
         <h2>从生活小事开始实践</h2>
         <p>点一点下面的习惯清单，打个勾——这些都是随手就能做到的小事。</p>
       </div>
@@ -855,10 +1009,10 @@ footer .icon{width:16px;height:16px;vertical-align:-3px;margin-right:6px;color:v
   </section>
 
   <!-- ================= GAME ================= -->
-  <section class="section section--alt" id="game">
+  <section class="section" id="game">
     <div class="page">
       <div class="section-head">
-        <span class="kicker"><svg class="icon"><use href="#i-recycle"/></svg>PART 4</span>
+        <span class="kicker"><svg class="icon"><use href="#i-recycle"/></svg>PART 5</span>
         <h2>小游戏：变废为能</h2>
         <p>把下面的垃圾拖进正确的分类桶，再选出它们最终能转化成什么能源或处理方式，看看你能答对多少。</p>
         <a class="ref-link" href="https://www.gov.cn/zhengce/zhengceku/2020-12/05/content_5567136.htm" target="_blank" rel="noopener">国家生活垃圾分类工作官方意见<svg class="icon"><use href="#i-arrow"/></svg></a>
@@ -911,10 +1065,10 @@ footer .icon{width:16px;height:16px;vertical-align:-3px;margin-right:6px;color:v
   </section>
 
   <!-- ================= QUIZ ================= -->
-  <section class="section" id="quiz">
+  <section class="section section--alt" id="quiz">
     <div class="page">
       <div class="section-head">
-        <span class="kicker"><svg class="icon"><use href="#i-spark"/></svg>PART 5</span>
+        <span class="kicker"><svg class="icon"><use href="#i-spark"/></svg>PART 6</span>
         <h2>随堂测试</h2>
         <p>从题库中随机抽取 10 道选择题，涵盖前面学过的概念、原因、生活实践和垃圾分类知识。</p>
       </div>
@@ -990,7 +1144,7 @@ footer .icon{width:16px;height:16px;vertical-align:-3px;margin-right:6px;color:v
   "use strict";
 
   /* ---------- nav active state ---------- */
-  var sections = ["concepts","why","practice","game","quiz"].map(function(id){return document.getElementById(id);});
+  var sections = ["concepts","why","calculator","practice","game","quiz"].map(function(id){return document.getElementById(id);});
   var navLinks = Array.prototype.slice.call(document.querySelectorAll("#navpills a"));
   function updateNav(){
     var y = window.scrollY + 140;
@@ -1002,6 +1156,74 @@ footer .icon{width:16px;height:16px;vertical-align:-3px;margin-right:6px;color:v
   }
   document.addEventListener("scroll", updateNav, {passive:true});
   updateNav();
+
+  /* ---------- carbon footprint calculator ---------- */
+  (function(){
+    var COMMUTE_FACTORS = { walk:0, transit:0.06, ev:0.10, fuel:0.19 }; // kg CO2 per km
+    var DIET_ANNUAL = { veg:600, balanced:1100, meat:1800 };            // kg CO2 per year
+    var FRIDGE_ANNUAL = 220;   // kg CO2 per fridge per year
+    var AC_PER_HOUR = 108;     // kg CO2 per (hour/day of use) per year
+    var TREE_ABSORPTION = 18;  // kg CO2 absorbed per tree per year
+    var GASOLINE_FACTOR = 2.3; // kg CO2 released per liter burned
+
+    var state = { commute:"walk", mileage:50, diet:"balanced", fridge:"1", ac:4 };
+
+    var commutePills = document.getElementById("commutePills");
+    var dietPills = document.getElementById("dietPills");
+    var fridgePills = document.getElementById("fridgePills");
+    var mileageSlider = document.getElementById("mileageSlider");
+    var acSlider = document.getElementById("acSlider");
+    var mileageVal = document.getElementById("mileageVal");
+    var acVal = document.getElementById("acVal");
+    if(!commutePills) return; // calculator markup not present
+
+    function bindPills(container, key){
+      container.addEventListener("click", function(e){
+        var btn = e.target.closest("button");
+        if(!btn) return;
+        state[key] = btn.dataset.value;
+        Array.prototype.forEach.call(container.children, function(b){ b.classList.toggle("active", b===btn); });
+        calc();
+      });
+    }
+    bindPills(commutePills, "commute");
+    bindPills(dietPills, "diet");
+    bindPills(fridgePills, "fridge");
+
+    mileageSlider.addEventListener("input", function(){
+      state.mileage = +mileageSlider.value;
+      mileageVal.textContent = state.mileage;
+      calc();
+    });
+    acSlider.addEventListener("input", function(){
+      state.ac = +acSlider.value;
+      acVal.textContent = state.ac;
+      calc();
+    });
+
+    function calc(){
+      var commuteKg = COMMUTE_FACTORS[state.commute] * state.mileage * 52;
+      var dietKg = DIET_ANNUAL[state.diet];
+      var homeKg = (+state.fridge) * FRIDGE_ANNUAL + state.ac * AC_PER_HOUR;
+      var totalKg = commuteKg + dietKg + homeKg;
+
+      document.getElementById("calcTotal").textContent = Math.round(totalKg).toLocaleString("zh-CN");
+      document.getElementById("calcTrees").textContent = Math.max(1, Math.round(totalKg / TREE_ABSORPTION)).toLocaleString("zh-CN");
+      document.getElementById("calcFuel").textContent = Math.round(totalKg / GASOLINE_FACTOR).toLocaleString("zh-CN");
+
+      [
+        {seg:"segCommute", lbl:"lblCommute", val:commuteKg},
+        {seg:"segDiet", lbl:"lblDiet", val:dietKg},
+        {seg:"segHome", lbl:"lblHome", val:homeKg}
+      ].forEach(function(s){
+        var pct = totalKg > 0 ? (s.val/totalKg*100) : 0;
+        document.getElementById(s.seg).style.width = pct + "%";
+        document.getElementById(s.lbl).textContent = Math.round(s.val).toLocaleString("zh-CN");
+      });
+    }
+
+    calc();
+  })();
 
   /* ---------- practice tabs ---------- */
   var tabbar = document.getElementById("tabbar");
