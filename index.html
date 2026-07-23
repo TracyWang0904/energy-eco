@@ -583,6 +583,42 @@ a{color:inherit;}
 .review-item .ans{color:var(--ink-soft);margin-top:3px;}
 .review-item .ans b{color:var(--ink);}
 
+/* ---------- eco personality ---------- */
+.persona-shell{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:clamp(18px,3vw,32px);box-shadow:var(--shadow-sm);}
+.persona-intro{display:flex;flex-direction:column;gap:16px;align-items:flex-start;}
+.persona-q{padding:20px 0;border-bottom:1px solid var(--line);}
+.persona-q:last-of-type{border-bottom:none;}
+.persona-q .qn{display:flex;gap:10px;font-weight:800;font-size:.98rem;margin-bottom:14px;}
+.persona-q .qn .idx{
+  flex:none;width:26px;height:26px;border-radius:50%;background:var(--sky-tint);color:var(--sky-deep);
+  display:flex;align-items:center;justify-content:center;font-size:.78rem;font-family:var(--font-display);font-variant-numeric:tabular-nums;
+}
+.persona-opts{display:flex;flex-direction:column;gap:10px;margin-left:36px;}
+.persona-opt{
+  text-align:left;padding:13px 16px;border-radius:var(--radius-md);border:1.5px solid var(--line);background:var(--surface);
+  font-size:.92rem;color:var(--ink);transition:all .15s ease;
+}
+.persona-opt:hover{border-color:var(--sky);}
+.persona-opt.picked{border-color:var(--teal);background:var(--teal-tint);color:var(--teal-deep);font-weight:700;}
+
+.persona-card{text-align:center;padding:18px 0 8px;}
+.persona-code{font-family:var(--font-display);font-weight:800;font-size:clamp(2.4rem,1.9rem + 2.4vw,3.4rem);letter-spacing:.07em;color:var(--teal-deep);font-variant-numeric:tabular-nums;}
+.persona-title{font-size:1.25rem;margin:6px 0 14px;font-family:var(--font-display);}
+.persona-desc{max-width:56ch;margin:0 auto;color:var(--ink-soft);font-size:.98rem;}
+.persona-bars{max-width:440px;margin:28px auto 0;display:flex;flex-direction:column;gap:16px;text-align:left;}
+.persona-bar-row .lbls{display:flex;justify-content:space-between;font-size:.8rem;font-weight:700;color:var(--ink-faint);margin-bottom:6px;}
+.persona-bar-row .lbls .win{color:var(--teal-deep);}
+.persona-bar-track{height:10px;border-radius:var(--radius-pill);background:var(--surface-soft);overflow:hidden;}
+.persona-bar-fill{height:100%;background:linear-gradient(90deg,var(--teal),var(--sky));border-radius:var(--radius-pill);transition:width .4s ease;}
+
+.persona-share{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:28px;}
+.persona-copied{text-align:center;color:var(--teal-deep);font-size:.85rem;font-weight:700;margin-top:12px;}
+.persona-shared-banner{
+  display:flex;align-items:center;gap:10px;background:var(--sky-tint);color:var(--sky-deep);
+  border-radius:var(--radius-md);padding:12px 16px;font-size:.86rem;font-weight:700;margin-bottom:22px;
+}
+.persona-shared-banner .icon{width:18px;height:18px;flex:none;}
+
 /* ---------- footer ---------- */
 footer{padding:40px 0 60px;text-align:center;color:var(--ink-faint);font-size:.86rem;}
 footer .icon{width:16px;height:16px;vertical-align:-3px;margin-right:6px;color:var(--teal);}
@@ -646,6 +682,8 @@ footer .icon{width:16px;height:16px;vertical-align:-3px;margin-right:6px;color:v
 <symbol id="i-fridge" viewBox="0 0 48 48"><rect x="12" y="5" width="24" height="38" rx="3"/><path d="M12 18h24"/><path d="M16 9v6M16 22v6" stroke-width="2.4"/></symbol>
 <symbol id="i-ac" viewBox="0 0 48 48"><rect x="6" y="8" width="36" height="14" rx="5"/><circle fill="currentColor" stroke="none" cx="14" cy="15" r="1.6"/><path d="M24 26v18M15.5 30.5l17 9M32.5 30.5l-17 9" stroke-width="2.2"/></symbol>
 <symbol id="i-meat" viewBox="0 0 48 48"><path d="M8 20c2-8 10-13 18-11 7 2 12 8 12 14 0 9-8 17-18 15-8-2-13-10-12-18Z"/><path d="M14 18l6 12M22 15l6 14M29 14l5 12" stroke-width="1.8"/></symbol>
+<symbol id="i-share" viewBox="0 0 48 48"><circle cx="36" cy="10" r="5.5"/><circle cx="12" cy="24" r="5.5"/><circle cx="36" cy="38" r="5.5"/><path d="M17 21 31 13M17 27 31 35"/></symbol>
+<symbol id="i-download" viewBox="0 0 48 48"><path d="M24 6v26M15 23l9 9 9-9"/><path d="M8 38h32" stroke-width="2.6"/></symbol>
 </defs>
 </svg>
 
@@ -664,6 +702,7 @@ footer .icon{width:16px;height:16px;vertical-align:-3px;margin-right:6px;color:v
       <a href="#practice">怎么做</a>
       <a href="#game">小游戏</a>
       <a href="#quiz">测一测</a>
+      <a href="#persona">环保人格</a>
     </nav>
   </div>
 </header>
@@ -1111,6 +1150,56 @@ footer .icon{width:16px;height:16px;vertical-align:-3px;margin-right:6px;color:v
       </div>
     </div>
   </section>
+
+  <!-- ================= ECO PERSONALITY ================= -->
+  <section class="section" id="persona">
+    <div class="page">
+      <div class="section-head">
+        <span class="kicker"><svg class="icon"><use href="#i-spark"/></svg>PART 7</span>
+        <h2>测一测：你的环保人格</h2>
+        <p>20 道情景选择题，像 MBTI 一样用四个字母测出你的环保人格类型——测完还能把结果分享给朋友。</p>
+      </div>
+
+      <div class="persona-shell">
+        <div id="personaSharedBanner" class="persona-shared-banner" style="display:none;">
+          <svg class="icon"><use href="#i-share"/></svg>
+          <span id="personaSharedText">有人把 TA 的环保人格分享给了你</span>
+        </div>
+
+        <div id="personaIntro" class="persona-intro">
+          <p style="color:var(--ink-soft);font-size:.95rem;">回答 20 道情景选择题，看看你更像"节俭派"还是"创新派"、"独行派"还是"传播派"——测完会给你一个专属的四字母类型。</p>
+          <button class="btn btn-primary" id="startPersona"><svg class="icon"><use href="#i-spark"/></svg>开始测试</button>
+        </div>
+
+        <div id="personaBody" style="display:none;">
+          <div class="quiz-progress-wrap">
+            <div class="quiz-progress-track"><div class="quiz-progress-fill" id="personaProgressFill"></div></div>
+            <div class="quiz-progress-text"><span id="personaProgressText">0</span> / 20 已作答</div>
+          </div>
+          <div id="personaQuestions"></div>
+          <p class="quiz-hint" id="personaHint">还有题目没有作答，请先完成全部 20 题～</p>
+          <div class="game-actions">
+            <button class="btn btn-primary" id="submitPersona"><svg class="icon"><use href="#i-spark"/></svg>查看我的环保人格</button>
+          </div>
+        </div>
+
+        <div id="personaResult" style="display:none;">
+          <div class="persona-card">
+            <div class="persona-code" id="personaCode">XXXX</div>
+            <h3 class="persona-title" id="personaTitle"></h3>
+            <p class="persona-desc" id="personaDesc"></p>
+            <div class="persona-bars" id="personaBars"></div>
+          </div>
+          <div class="persona-share">
+            <button class="btn btn-ghost" id="copyPersona"><svg class="icon"><use href="#i-share"/></svg>复制分享文案</button>
+            <button class="btn btn-ghost" id="downloadPersona"><svg class="icon"><use href="#i-download"/></svg>下载结果图片</button>
+            <button class="btn btn-primary" id="retryPersona"><svg class="icon"><use href="#i-recycle"/></svg>再测一次</button>
+          </div>
+          <p class="persona-copied" id="personaCopied" style="display:none;">已复制到剪贴板，去粘贴分享吧～</p>
+        </div>
+      </div>
+    </div>
+  </section>
 </main>
 
 <footer>
@@ -1144,7 +1233,7 @@ footer .icon{width:16px;height:16px;vertical-align:-3px;margin-right:6px;color:v
   "use strict";
 
   /* ---------- nav active state ---------- */
-  var sections = ["concepts","why","calculator","practice","game","quiz"].map(function(id){return document.getElementById(id);});
+  var sections = ["concepts","why","calculator","practice","game","quiz","persona"].map(function(id){return document.getElementById(id);});
   var navLinks = Array.prototype.slice.call(document.querySelectorAll("#navpills a"));
   function updateNav(){
     var y = window.scrollY + 140;
@@ -2117,6 +2206,338 @@ footer .icon{width:16px;height:16px;vertical-align:-3px;margin-right:6px;color:v
     quizResult.style.display = "none";
     quizIntro.style.display = "flex";
   });
+
+  /* ================= ECO PERSONALITY QUIZ ================= */
+  (function(){
+    var AXES = [
+      {key:"resource", pos:"F", neg:"N", posLabel:"节俭派", negLabel:"创新派"},
+      {key:"social",   pos:"Q", neg:"V", posLabel:"独行派", negLabel:"传播派"},
+      {key:"decision", pos:"A", neg:"T", posLabel:"行动派", negLabel:"思考派"},
+      {key:"standard", pos:"R", neg:"E", posLabel:"严格派", negLabel:"平衡派"}
+    ];
+
+    var PERSONA_QUESTIONS = [
+      {axis:"resource", q:"家里的灯泡坏了，你会：", opts:[
+        {t:"换个普通节能灯泡，够用就行", letter:"F"},
+        {t:"顺便研究一下智能灯泡，能远程控制还能连APP", letter:"N"}
+      ]},
+      {axis:"resource", q:"出行方式选择时，你更倾向于：", opts:[
+        {t:"走路或骑自行车，简单直接不花钱", letter:"F"},
+        {t:"考虑入手一辆电动车，或体验共享新能源车", letter:"N"}
+      ]},
+      {axis:"resource", q:"面对“该不该换新家电”的问题，你通常：", opts:[
+        {t:"旧的还能用就继续用，修一修凑合一下", letter:"F"},
+        {t:"会主动了解新一代高能效产品，愿意升级换代", letter:"N"}
+      ]},
+      {axis:"resource", q:"你觉得解决气候问题最重要的是：", opts:[
+        {t:"大家一起少消耗、少浪费", letter:"F"},
+        {t:"靠技术突破，比如新能源、碳捕集这些", letter:"N"}
+      ]},
+      {axis:"resource", q:"朋友推荐了一份“环保生活小妙招”清单，你更感兴趣的是：", opts:[
+        {t:"用剩菜剩饭做堆肥，省钱又实用", letter:"F"},
+        {t:"家庭光伏发电系统入门，挺有技术含量", letter:"N"}
+      ]},
+      {axis:"social", q:"你做了一件环保小事（比如自带杯子），你会：", opts:[
+        {t:"默默做就好，不用特意让别人知道", letter:"Q"},
+        {t:"拍张照发朋友圈，鼓励大家也试试", letter:"V"}
+      ]},
+      {axis:"social", q:"公司或学校要不要搞垃圾分类活动，你的态度是：", opts:[
+        {t:"自己分类做好就行，不太想张罗这事", letter:"Q"},
+        {t:"愿意主动提议，并组织大家一起参与", letter:"V"}
+      ]},
+      {axis:"social", q:"家人的生活习惯不太环保，你会：", opts:[
+        {t:"自己做好表率，不去说教", letter:"Q"},
+        {t:"找机会跟他们聊聊，试着说服他们改变", letter:"V"}
+      ]},
+      {axis:"social", q:"你更喜欢的环保参与方式是：", opts:[
+        {t:"一个人默默调整自己的生活方式", letter:"Q"},
+        {t:"加入环保社群、参加志愿活动认识同伴", letter:"V"}
+      ]},
+      {axis:"social", q:"看到一篇很棒的能源环保科普文章，你会：", opts:[
+        {t:"自己看完，学到了就行", letter:"Q"},
+        {t:"转发到群里，@ 几个朋友一起看", letter:"V"}
+      ]},
+      {axis:"decision", q:"学到一个新的环保知识点，你的第一反应是：", opts:[
+        {t:"马上想想自己能做点什么改变", letter:"A"},
+        {t:"先查查资料，搞懂背后的原理和数据", letter:"T"}
+      ]},
+      {axis:"decision", q:"面对“该不该买新能源车”的问题，你会：", opts:[
+        {t:"觉得方向对就先试试看", letter:"A"},
+        {t:"仔细对比续航、电池回收等各种数据再决定", letter:"T"}
+      ]},
+      {axis:"decision", q:"参加本页的随堂测试之前，你更想：", opts:[
+        {t:"直接开始答题，边做边学", letter:"A"},
+        {t:"先把前面的概念和数据都看一遍再开始", letter:"T"}
+      ]},
+      {axis:"decision", q:"你觉得自己在环保这件事上更像：", opts:[
+        {t:"先做起来，遇到问题再调整", letter:"A"},
+        {t:"想清楚整套逻辑，再一次做对", letter:"T"}
+      ]},
+      {axis:"decision", q:"看到“变废为能”这个分类小游戏，你会：", opts:[
+        {t:"直接开始拖拽，凭直觉分类", letter:"A"},
+        {t:"先想清楚每类垃圾的定义再动手", letter:"T"}
+      ]},
+      {axis:"standard", q:"出差或旅行时，你对自己的环保标准是：", opts:[
+        {t:"尽量维持平时的低碳习惯，绝不放松", letter:"R"},
+        {t:"出门在外图个方便，环保先放一放也没关系", letter:"E"}
+      ]},
+      {axis:"standard", q:"朋友请你吃一顿用了不少一次性餐具的大餐，你会：", opts:[
+        {t:"心里有点小纠结，尽量少用一次性用品", letter:"R"},
+        {t:"高高兴兴享受聚餐，环保的事下次再说", letter:"E"}
+      ]},
+      {axis:"standard", q:"你对自己“碳足迹”的态度是：", opts:[
+        {t:"希望能精确计算，尽量压到最低", letter:"R"},
+        {t:"大概心里有数就行，不用太较真", letter:"E"}
+      ]},
+      {axis:"standard", q:"家里要不要严格限制空调使用时间，你觉得：", opts:[
+        {t:"应该设定明确规则，说到做到", letter:"R"},
+        {t:"天热就该开，舒服最重要，适度就好", letter:"E"}
+      ]},
+      {axis:"standard", q:"你如何看待“完美的环保生活方式”：", opts:[
+        {t:"值得努力追求，越接近零浪费越好", letter:"R"},
+        {t:"没必要给自己太大压力，可持续才最重要", letter:"E"}
+      ]}
+    ];
+
+    var PERSONA_TYPES = {
+      FQAR:{title:"隐士型节能家",desc:"你相信“少即是多”，习惯安静地把生活打理得井井有条：不用的插头随手拔，旧物尽量修修补补继续用。你对自己的标准很高，宁愿踏实做好每一件小事，也不爱到处宣扬。"},
+      FQAE:{title:"佛系省钱家",desc:"你信奉能省则省，但不会给自己太大压力——旧物利用、随手关灯是日常习惯，偶尔“放纵”一下也无妨。你的环保之道朴素又松弛，靠的是细水长流。"},
+      FQTR:{title:"静默研究者",desc:"你喜欢先弄懂原理再行动，对每一次消费选择都精打细算。你不爱张扬，却对自己的生活方式有着近乎严苛的要求，是个不声不响的资源管理高手。"},
+      FQTE:{title:"从容观察家",desc:"你喜欢先搞懂来龙去脉，再决定怎么做最省心。比起轰轰烈烈的改变，你更享受把日子过得简单从容——够用就好，不必较真。"},
+      FVAR:{title:"环保苦行布道者",desc:"你对自己要求严格，同时也乐于把这份坚持分享出去：拉着朋友一起自带餐具、组织大家参与垃圾分类。你相信身体力行加上耐心传播，才能带动更多人。"},
+      FVAE:{title:"邻里节能达人",desc:"你喜欢用最朴素的办法过日子，也乐于把这些小妙招分享给身边人。你不追求完美，但很享受和大家一起把日子过得更省、更实在的过程。"},
+      FVTR:{title:"严谨环保导师",desc:"你习惯先研究透彻，再身体力行，还愿意把弄懂的道理讲给别人听。你对自己和身边人都有较高的期待，是那种“讲道理又带头做”的类型。"},
+      FVTE:{title:"温和分享家",desc:"你喜欢把学到的省钱省心小技巧分享给大家，语气总是温和不说教。比起严格执行，你更享受和朋友们一起慢慢养成好习惯的过程。"},
+      NQAR:{title:"极客改造家",desc:"你对新技术充满好奇，喜欢默默把家里的设备升级得更高效——智能插座、光伏板都是你的心头好。你对自己的方案要求严格，追求技术上的最优解。"},
+      NQAE:{title:"低调发明家",desc:"你喜欢研究新工具新方法，享受用巧思让生活更高效的过程，却不太爱到处宣传。轻松随性是你的风格，好用就行，不用太较真。"},
+      NQTR:{title:"深度研究员",desc:"你喜欢刨根问底，把新能源、新技术的原理和数据都研究透彻，才愿意付诸行动。你对自己的方案精益求精，是那种把环保当成一门学问来钻研的人。"},
+      NQTE:{title:"佛系技术宅",desc:"你对新科技很感兴趣，喜欢研究明白背后的道理，但不会给自己太大压力去执行到极致。慢慢了解、按自己的节奏尝试，才是你的风格。"},
+      NVAR:{title:"未来行动派领袖",desc:"你相信技术能改变世界，也乐于站出来带头尝试新方案、说服身边人一起加入。你对目标要求很高，是那种敢想敢做又能带动大家的类型。"},
+      NVAE:{title:"潮流环保达人",desc:"你对新奇的环保科技如数家珍，也很乐意分享给朋友们种草。轻松有趣是你的风格，环保于你更像一种时髦又自然的生活方式。"},
+      NVTR:{title:"科普布道家",desc:"你喜欢钻研新技术背后的原理，也享受把这些知识讲给更多人听。你对自己和分享的内容都要求严谨，是那种“先懂了再讲清楚”的科普达人。"},
+      NVTE:{title:"乐活创新家",desc:"你对新鲜事物充满热情，喜欢研究新方法也乐于分享，但不会太苛求自己或别人。享受尝试、乐于分享、不给自己压力，是你环保生活的关键词。"}
+    };
+
+    var personaIntro = document.getElementById("personaIntro");
+    var personaBody = document.getElementById("personaBody");
+    var personaResult = document.getElementById("personaResult");
+    var personaQuestions = document.getElementById("personaQuestions");
+    var startPersonaBtn = document.getElementById("startPersona");
+    var submitPersonaBtn = document.getElementById("submitPersona");
+    var retryPersonaBtn = document.getElementById("retryPersona");
+    var copyPersonaBtn = document.getElementById("copyPersona");
+    var downloadPersonaBtn = document.getElementById("downloadPersona");
+    var personaHint = document.getElementById("personaHint");
+    var personaProgressFill = document.getElementById("personaProgressFill");
+    var personaProgressText = document.getElementById("personaProgressText");
+    var personaCopied = document.getElementById("personaCopied");
+    var personaSharedBanner = document.getElementById("personaSharedBanner");
+    var personaSharedText = document.getElementById("personaSharedText");
+    if(!personaIntro) return; // markup not present
+
+    var personaPicks = {};
+    var lastCode = null;
+
+    function renderPersonaQuestions(){
+      personaQuestions.innerHTML = PERSONA_QUESTIONS.map(function(item, qi){
+        var optsHTML = item.opts.map(function(opt, oi){
+          return '<button type="button" class="persona-opt" data-q="'+qi+'" data-o="'+oi+'">'+opt.t+'</button>';
+        }).join("");
+        return '<div class="persona-q"><div class="qn"><span class="idx">'+(qi+1)+'</span><span>'+item.q+'</span></div><div class="persona-opts">'+optsHTML+'</div></div>';
+      }).join("");
+      updatePersonaProgress();
+    }
+
+    function updatePersonaProgress(){
+      var answered = Object.keys(personaPicks).length;
+      personaProgressText.textContent = answered;
+      personaProgressFill.style.width = (answered/PERSONA_QUESTIONS.length*100)+"%";
+    }
+
+    personaQuestions.addEventListener("click", function(e){
+      var btn = e.target.closest(".persona-opt");
+      if(!btn) return;
+      var qi = btn.dataset.q;
+      personaPicks[qi] = parseInt(btn.dataset.o,10);
+      personaQuestions.querySelectorAll('.persona-opt[data-q="'+qi+'"]').forEach(function(b){
+        b.classList.toggle("picked", b===btn);
+      });
+      personaHint.classList.remove("show");
+      updatePersonaProgress();
+    });
+
+    startPersonaBtn.addEventListener("click", function(){
+      personaPicks = {};
+      renderPersonaQuestions();
+      personaIntro.style.display = "none";
+      personaResult.style.display = "none";
+      personaBody.style.display = "block";
+    });
+
+    function computeResult(){
+      var scores = {F:0,N:0,Q:0,V:0,A:0,T:0,R:0,E:0};
+      PERSONA_QUESTIONS.forEach(function(item, qi){
+        var oi = personaPicks[qi];
+        var letter = item.opts[oi].letter;
+        scores[letter]++;
+      });
+      var code = "";
+      var axisResults = AXES.map(function(axis){
+        var posScore = scores[axis.pos], negScore = scores[axis.neg];
+        var total = posScore + negScore;
+        var winner = posScore >= negScore ? axis.pos : axis.neg;
+        code += winner;
+        return {
+          axis:axis, posScore:posScore, negScore:negScore, total:total,
+          posPct: total? Math.round(posScore/total*100):50,
+          negPct: total? Math.round(negScore/total*100):50,
+          winner:winner
+        };
+      });
+      return {code:code, axisResults:axisResults};
+    }
+
+    function renderResult(code, axisResults){
+      var type = PERSONA_TYPES[code] || {title:"独特的环保人", desc:"你的答案组合很特别，暂时没有匹配到预设类型，但这恰恰说明你的环保风格很难被简单归类。"};
+      document.getElementById("personaCode").textContent = code;
+      document.getElementById("personaTitle").textContent = type.title;
+      document.getElementById("personaDesc").textContent = type.desc;
+
+      var barsEl = document.getElementById("personaBars");
+      if(axisResults){
+        barsEl.innerHTML = axisResults.map(function(r){
+          var posWin = r.winner === r.axis.pos;
+          return '<div class="persona-bar-row">'+
+            '<div class="lbls"><span class="'+(posWin?"win":"")+'">'+r.axis.posLabel+' '+r.posPct+'%</span>'+
+            '<span class="'+(!posWin?"win":"")+'">'+r.axis.negLabel+' '+r.negPct+'%</span></div>'+
+            '<div class="persona-bar-track"><div class="persona-bar-fill" style="width:'+r.posPct+'%"></div></div>'+
+          '</div>';
+        }).join("");
+      } else {
+        barsEl.innerHTML = "";
+      }
+
+      personaBody.style.display = "none";
+      personaIntro.style.display = "none";
+      personaResult.style.display = "block";
+      lastCode = code;
+      try{ history.replaceState(null, "", "#eco="+code); }catch(e){}
+    }
+
+    submitPersonaBtn.addEventListener("click", function(){
+      if(Object.keys(personaPicks).length < PERSONA_QUESTIONS.length){
+        personaHint.classList.add("show");
+        return;
+      }
+      var result = computeResult();
+      renderResult(result.code, result.axisResults);
+    });
+
+    retryPersonaBtn.addEventListener("click", function(){
+      personaPicks = {};
+      renderPersonaQuestions();
+      personaResult.style.display = "none";
+      personaBody.style.display = "block";
+      personaSharedBanner.style.display = "none";
+      retryPersonaBtn.innerHTML = '<svg class="icon"><use href="#i-recycle"/></svg>再测一次';
+      try{ history.replaceState(null, "", location.pathname+location.search); }catch(e){}
+    });
+
+    function shareText(){
+      var type = PERSONA_TYPES[lastCode] || {title:"独特的环保人", desc:""};
+      var url = location.href.split("#")[0] + "#eco=" + lastCode;
+      return "我的环保人格是【"+type.title+" "+lastCode+"】\n"+type.desc+"\n\n戳链接测测你的环保人格类型：\n"+url;
+    }
+
+    copyPersonaBtn.addEventListener("click", function(){
+      var text = shareText();
+      function showCopied(){
+        personaCopied.style.display = "block";
+        setTimeout(function(){ personaCopied.style.display = "none"; }, 2500);
+      }
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(showCopied, function(){
+          window.prompt("复制下面的文字去分享吧：", text);
+        });
+      } else {
+        window.prompt("复制下面的文字去分享吧：", text);
+      }
+    });
+
+    downloadPersonaBtn.addEventListener("click", function(){
+      var type = PERSONA_TYPES[lastCode] || {title:"独特的环保人", desc:""};
+      var W = 800, H = 1000;
+      var canvas = document.createElement("canvas");
+      canvas.width = W; canvas.height = H;
+      var ctx = canvas.getContext("2d");
+
+      var grad = ctx.createLinearGradient(0,0,W,H);
+      grad.addColorStop(0, "#0E3B36");
+      grad.addColorStop(1, "#12A085");
+      ctx.fillStyle = grad;
+      ctx.fillRect(0,0,W,H);
+
+      ctx.fillStyle = "rgba(255,255,255,.12)";
+      ctx.beginPath(); ctx.arc(W*0.85, H*0.12, 160, 0, Math.PI*2); ctx.fill();
+      ctx.beginPath(); ctx.arc(W*0.1, H*0.92, 200, 0, Math.PI*2); ctx.fill();
+
+      ctx.textAlign = "center";
+      ctx.fillStyle = "rgba(255,255,255,.75)";
+      ctx.font = "700 26px 'Nunito','PingFang SC',sans-serif";
+      ctx.fillText("清能笔记 · 我的环保人格", W/2, 110);
+
+      ctx.fillStyle = "#ffffff";
+      ctx.font = "800 130px 'Baloo 2','PingFang SC',sans-serif";
+      ctx.fillText(lastCode, W/2, 320);
+
+      ctx.font = "700 44px 'Baloo 2','PingFang SC',sans-serif";
+      ctx.fillText(type.title, W/2, 400);
+
+      ctx.font = "400 28px 'Nunito','PingFang SC',sans-serif";
+      ctx.fillStyle = "rgba(255,255,255,.92)";
+      var words = type.desc.split("");
+      var lines = [], cur = "";
+      var maxWidth = W - 160;
+      words.forEach(function(ch){
+        var test = cur + ch;
+        if(ctx.measureText(test).width > maxWidth){ lines.push(cur); cur = ch; }
+        else { cur = test; }
+      });
+      if(cur) lines.push(cur);
+      var ly = 480;
+      lines.slice(0,6).forEach(function(line){
+        ctx.fillText(line, W/2, ly);
+        ly += 44;
+      });
+
+      ctx.font = "700 24px 'Nunito','PingFang SC',sans-serif";
+      ctx.fillStyle = "rgba(255,255,255,.7)";
+      ctx.fillText("扫码或访问链接，测测你的环保人格", W/2, H-70);
+      ctx.font = "400 20px 'Nunito','PingFang SC',sans-serif";
+      ctx.fillText(location.href.split("#")[0], W/2, H-38);
+
+      canvas.toBlob(function(blob){
+        var a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        a.download = "我的环保人格-"+lastCode+".png";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      });
+    });
+
+    /* restore a shared result from the URL hash, e.g. #eco=FQAR */
+    var hashMatch = location.hash.match(/eco=([A-Z]{4})/);
+    if(hashMatch && PERSONA_TYPES[hashMatch[1]]){
+      var sharedCode = hashMatch[1];
+      personaSharedBanner.style.display = "flex";
+      personaSharedText.textContent = "有人把 TA 的环保人格【"+PERSONA_TYPES[sharedCode].title+" "+sharedCode+"】分享给了你";
+      renderResult(sharedCode, null);
+      var barsEl2 = document.getElementById("personaBars");
+      barsEl2.innerHTML = '<p style="color:var(--ink-faint);font-size:.85rem;text-align:center;">这是分享给你的类型概览，答题查看你自己的详细分析吧</p>';
+      retryPersonaBtn.innerHTML = '<svg class="icon"><use href="#i-spark"/></svg>测测我自己的类型';
+    }
+  })();
 
 })();
 </script>
