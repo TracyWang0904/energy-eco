@@ -586,6 +586,14 @@ a{color:inherit;}
 /* ---------- eco personality ---------- */
 .persona-shell{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:clamp(18px,3vw,32px);box-shadow:var(--shadow-sm);}
 .persona-intro{display:flex;flex-direction:column;gap:16px;align-items:flex-start;}
+.persona-axes-explain{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;width:100%;}
+@media (max-width:640px){.persona-axes-explain{grid-template-columns:1fr;}}
+.persona-axis-card{background:var(--surface-alt);border-radius:var(--radius-md);padding:16px 18px;}
+.persona-axis-letters{display:flex;align-items:baseline;gap:7px;font-family:var(--font-display);font-weight:800;font-size:1.4rem;color:var(--teal-deep);margin-bottom:10px;}
+.persona-axis-letters .vs{color:var(--ink-faint);font-size:.85rem;font-weight:700;}
+.persona-axis-row{font-size:.86rem;color:var(--ink-soft);line-height:1.6;}
+.persona-axis-row + .persona-axis-row{margin-top:6px;}
+.persona-axis-row b{color:var(--ink);margin-right:4px;}
 .persona-q{padding:20px 0;border-bottom:1px solid var(--line);}
 .persona-q:last-of-type{border-bottom:none;}
 .persona-q .qn{display:flex;gap:10px;font-weight:800;font-size:.98rem;margin-bottom:14px;}
@@ -1167,7 +1175,29 @@ footer .icon{width:16px;height:16px;vertical-align:-3px;margin-right:6px;color:v
         </div>
 
         <div id="personaIntro" class="persona-intro">
-          <p style="color:var(--ink-soft);font-size:.95rem;">回答 20 道情景选择题，看看你更像"节俭派"还是"创新派"、"独行派"还是"传播派"——测完会给你一个专属的四字母类型。</p>
+          <p style="color:var(--ink-soft);font-size:.95rem;">回答 20 道情景选择题，测完会给你一个专属的四字母类型——每个字母来自下面这 4 组对照中的一边，选得多的那一边就是你的字母：</p>
+          <div class="persona-axes-explain">
+            <div class="persona-axis-card">
+              <div class="persona-axis-letters"><span>F</span><span class="vs">/</span><span>N</span></div>
+              <div class="persona-axis-row"><b>F 节俭派</b>相信“少即是多”，能省则省、物尽其用</div>
+              <div class="persona-axis-row"><b>N 创新派</b>更愿意拥抱新技术、新方案解决问题</div>
+            </div>
+            <div class="persona-axis-card">
+              <div class="persona-axis-letters"><span>Q</span><span class="vs">/</span><span>V</span></div>
+              <div class="persona-axis-row"><b>Q 独行派</b>习惯安静地做好自己的事，不爱张扬</div>
+              <div class="persona-axis-row"><b>V 传播派</b>喜欢分享、带动身边人一起参与</div>
+            </div>
+            <div class="persona-axis-card">
+              <div class="persona-axis-letters"><span>A</span><span class="vs">/</span><span>T</span></div>
+              <div class="persona-axis-row"><b>A 行动派</b>先做起来，遇到问题再调整</div>
+              <div class="persona-axis-row"><b>T 思考派</b>先弄懂原理和数据，再付诸行动</div>
+            </div>
+            <div class="persona-axis-card">
+              <div class="persona-axis-letters"><span>R</span><span class="vs">/</span><span>E</span></div>
+              <div class="persona-axis-row"><b>R 严格派</b>对自己要求高，尽量把标准做到位</div>
+              <div class="persona-axis-row"><b>E 平衡派</b>不追求完美，图个可持续、能坚持</div>
+            </div>
+          </div>
           <button class="btn btn-primary" id="startPersona"><svg class="icon"><use href="#i-spark"/></svg>开始测试</button>
         </div>
 
